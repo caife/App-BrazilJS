@@ -2,18 +2,20 @@
   var TabGroup;
 
   TabGroup = function() {
-    var self, tabLocalization, tabTalkers, tabTalks, tabTwitter;
+    var WinSpeakers, self, tabLocalization, tabSpeakers, tabTalks, tabTwitter;
+    WinSpeakers = require("/ui/WinSpeakers");
     self = Ti.UI.createTabGroup();
     tabTalks = Ti.UI.createTab({
       title: L("talks"),
       icon: "/images/icons/Allotted-Time.png"
     });
     self.addTab(tabTalks);
-    tabTalkers = Ti.UI.createTab({
-      title: L("talkers"),
-      icon: "/images/icons/Users.png"
+    tabSpeakers = Ti.UI.createTab({
+      title: L("speakers"),
+      icon: "/images/icons/Users.png",
+      window: new WinSpeakers()
     });
-    self.addTab(tabTalkers);
+    self.addTab(tabSpeakers);
     tabLocalization = Ti.UI.createTab({
       title: L("localization"),
       icon: "/images/icons/Navigation-Map.png"

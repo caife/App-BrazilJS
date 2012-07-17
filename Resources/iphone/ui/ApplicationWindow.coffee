@@ -1,5 +1,7 @@
 TabGroup = ->
 
+	WinSpeakers = require "/ui/WinSpeakers"
+
 	# Create TabGroup
 	self = Ti.UI.createTabGroup()
 
@@ -11,11 +13,12 @@ TabGroup = ->
 		icon: "/images/icons/Allotted-Time.png"
 	self.addTab(tabTalks)
 
-	# Talkers
-	tabTalkers = Ti.UI.createTab
-		title: L("talkers")
+	# Speakers
+	tabSpeakers = Ti.UI.createTab
+		title: L("speakers")
 		icon: "/images/icons/Users.png"
-	self.addTab(tabTalkers)
+		window: new WinSpeakers()
+	self.addTab(tabSpeakers)
 
 	# Localization
 	tabLocalization = Ti.UI.createTab

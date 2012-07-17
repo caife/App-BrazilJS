@@ -27,8 +27,8 @@ Window = ->
 				title: L("talks")
 				icon: "/images/icons/Allotted-Time.png"
 
-			talkers:
-				title: L("talkers")
+			speakers:
+				title: L("speakers")
 				icon: "/images/icons/Users.png"
 
 			localization:
