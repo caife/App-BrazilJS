@@ -1,6 +1,9 @@
 TabGroup = ->
 
 	WinSpeakers = require "/ui/WinSpeakers"
+	WinTalks = require "/ui/WinTalks"
+	WinLocalization = require "/ui/WinLocalization"
+	WinTwitter = require "/ui/WinTwitter"
 
 	# Create TabGroup
 	self = Ti.UI.createTabGroup()
@@ -11,6 +14,7 @@ TabGroup = ->
 	tabTalks = Ti.UI.createTab
 		title: L("talks")
 		icon: "/images/icons/Allotted-Time.png"
+		window: new WinTalks()
 	self.addTab(tabTalks)
 
 	# Speakers
@@ -24,12 +28,14 @@ TabGroup = ->
 	tabLocalization = Ti.UI.createTab
 		title: L("localization")
 		icon: "/images/icons/Navigation-Map.png"
+		window: new WinLocalization()
 	self.addTab(tabLocalization)
 
 	# Twitter
 	tabTwitter = Ti.UI.createTab
 		title: L("twitter")
 		icon: "/images/icons/Twitter-New.png"
+		window: new WinTwitter()
 	self.addTab(tabTwitter)
 
 	self
