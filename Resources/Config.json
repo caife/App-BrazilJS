@@ -1,0 +1,18 @@
+{
+	"appname": "BrazilJS",
+	"website": "http://www.braziljs.com.br",
+	"twitter_handle": "braziljs",
+	"mail_contact": "",
+	"theme": {
+		"barColor": "#006400"
+	},
+	"localization": {
+		"latitude": -30.022626,
+		"longitude": -51.161799,
+		"name": "Teatro do Bourbon Country",
+		"address": "Avenida Túlio de Rose, 80 - Passo da Areia",
+		"city": "Porto Alegre",
+		"state": "RS",
+		"phone": "(51) 3375-3700"
+	}
+}
