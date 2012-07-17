@@ -2,6 +2,8 @@ Window = ->
 
 	ActionBarView = require "/ui/ActionBarView"
 	TabStripView = require "/ui/TabStripView"
+	ViewSpeakers = require "/ui/ViewSpeakers"
+	ViewTalks = require "/ui/ViewTalks"
 
 	self = Ti.UI.createWindow
 		backgroundColor: "#FFF"
@@ -40,6 +42,28 @@ Window = ->
 				icon: "/images/icons/Twitter-New.png"
 
 	self.add tabStripView
+
+	# View Controller
+	speakers = new ViewSpeakers()
+	talks = new ViewTalks()
+
+	viewController = Ti.UI.createScrollableView
+		top: "94dp"
+		left: 0
+		right: 0
+		bottom: 0
+		views: [talks, speakers]
+		showPagingControl: false
+		backgroundColor: "#000"
+
+	self.add viewController
+
+	# Events handler
+	viewController.addEventListener "scroll", (e) ->
+		tabStripView.selectIndex e.currentPage
+
+	tabStripView.addEventListener "selected", (e) ->
+		viewController.scrollToView e.index
 
 	self
 

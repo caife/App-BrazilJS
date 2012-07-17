@@ -2,9 +2,11 @@
   var Window;
 
   Window = function() {
-    var ActionBarView, TabStripView, actionBar, self, tabStripView;
+    var ActionBarView, TabStripView, ViewSpeakers, ViewTalks, actionBar, self, speakers, tabStripView, talks, viewController;
     ActionBarView = require("/ui/ActionBarView");
     TabStripView = require("/ui/TabStripView");
+    ViewSpeakers = require("/ui/ViewSpeakers");
+    ViewTalks = require("/ui/ViewTalks");
     self = Ti.UI.createWindow({
       backgroundColor: "#FFF",
       title: "Home",
@@ -43,6 +45,24 @@
       }
     });
     self.add(tabStripView);
+    speakers = new ViewSpeakers();
+    talks = new ViewTalks();
+    viewController = Ti.UI.createScrollableView({
+      top: "94dp",
+      left: 0,
+      right: 0,
+      bottom: 0,
+      views: [talks, speakers],
+      showPagingControl: false,
+      backgroundColor: "#000"
+    });
+    self.add(viewController);
+    viewController.addEventListener("scroll", function(e) {
+      return tabStripView.selectIndex(e.currentPage);
+    });
+    tabStripView.addEventListener("selected", function(e) {
+      return viewController.scrollToView(e.index);
+    });
     return self;
   };
 
