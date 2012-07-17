@@ -54,5 +54,7 @@
         </splash>
         <theme>default</theme>
     </mobileweb>
-    <modules/>
+    <modules>
+        <module version="1.2">de.marcelpociot.twitter</module>
+    </modules>
 </ti:app>
