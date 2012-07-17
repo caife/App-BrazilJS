@@ -43,7 +43,7 @@
     defaults = {
       draggable: false,
       animate: true,
-      pinColor: Ti.Map.ANNOTATION_GREEN
+      pincolor: Ti.Map.ANNOTATION_GREEN
     };
     annotation = Ti.Map.createAnnotation(applyConfig(dict, defaults));
     return annotation;
