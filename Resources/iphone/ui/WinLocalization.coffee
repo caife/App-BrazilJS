@@ -13,14 +13,6 @@ Window = ->
 	self = new ui.createWindow
 		title: L("localization")
 
-	# Create the MapView
-	mapView = new ui.createMapView
-		region:
-			latitude: config.latitude
-			longitude: config.longitude
-			latitudeDelta: 0.005
-			longitudeDelta: 0.005
-
 	# Create the Annotation
 	annotation = new ui.createMapAnnotation
 		latitude: config.latitude
@@ -29,7 +21,14 @@ Window = ->
 		subtitle: config.address
 		rightButton: Ti.UI.iPhone.SystemButton.CONTACT_ADD
 
-	mapView.addAnnotation annotation
+	# Create the MapView
+	mapView = new ui.createMapView
+		annotations: [annotation]
+		region:
+			latitude: config.latitude
+			longitude: config.longitude
+			latitudeDelta: 0.005
+			longitudeDelta: 0.005
 
 	self.add mapView
 

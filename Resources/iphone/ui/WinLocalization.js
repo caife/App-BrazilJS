@@ -11,14 +11,6 @@
     self = new ui.createWindow({
       title: L("localization")
     });
-    mapView = new ui.createMapView({
-      region: {
-        latitude: config.latitude,
-        longitude: config.longitude,
-        latitudeDelta: 0.005,
-        longitudeDelta: 0.005
-      }
-    });
     annotation = new ui.createMapAnnotation({
       latitude: config.latitude,
       longitude: config.longitude,
@@ -26,7 +18,15 @@
       subtitle: config.address,
       rightButton: Ti.UI.iPhone.SystemButton.CONTACT_ADD
     });
-    mapView.addAnnotation(annotation);
+    mapView = new ui.createMapView({
+      annotations: [annotation],
+      region: {
+        latitude: config.latitude,
+        longitude: config.longitude,
+        latitudeDelta: 0.005,
+        longitudeDelta: 0.005
+      }
+    });
     self.add(mapView);
     mapView.addEventListener("click", function(e) {
       var mapOptions;
