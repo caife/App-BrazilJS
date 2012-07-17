@@ -1,9 +1,15 @@
 (function() {
-  var applyConfig, extend, gradientColor, isAndroid;
+  var Model, applyConfig, config, extend, gradientColor, isAndroid, model;
+
+  Model = require("/lib/Model");
+
+  model = new Model();
+
+  config = model.getConfig();
 
   isAndroid = Ti.Platform.osname === "android" ? true : false;
 
-  gradientColor = "#006400";
+  gradientColor = config.theme.barColor;
 
   exports.createWindow = function(dict) {
     var defaults, window;
@@ -21,6 +27,26 @@
     };
     view = Ti.UI.createView(applyConfig(dict, defaults));
     return view;
+  };
+
+  exports.createMapView = function(dict) {
+    var defaults, mapView;
+    defaults = {
+      top: isAndroid ? 94 : 0
+    };
+    mapView = Ti.Map.createView(applyConfig(dict, defaults));
+    return mapView;
+  };
+
+  exports.createMapAnnotation = function(dict) {
+    var annotation, defaults;
+    defaults = {
+      draggable: false,
+      animate: true,
+      pinColor: Ti.Map.ANNOTATION_GREEN
+    };
+    annotation = Ti.Map.createAnnotation(applyConfig(dict, defaults));
+    return annotation;
   };
 
   exports.createTableView = function(dict) {

@@ -1,6 +1,10 @@
+Model = require "/lib/Model"
+model = new Model()
+config = model.getConfig()
+
 # Defaults
 isAndroid = if (Ti.Platform.osname == "android") then true else false
-gradientColor = "#006400"
+gradientColor = config.theme.barColor
 
 
 # Window
@@ -23,6 +27,29 @@ exports.createView = (dict) ->
 	view = Ti.UI.createView applyConfig dict, defaults
 
 	view
+
+
+# MapView
+exports.createMapView = (dict) ->
+
+	defaults = 
+		top: if isAndroid then 94 else 0
+
+	mapView = Ti.Map.createView applyConfig dict, defaults
+
+	mapView
+
+# MapAnnotation
+exports.createMapAnnotation = (dict) ->
+
+	defaults = 
+		draggable: false
+		animate: true
+		pinColor: Ti.Map.ANNOTATION_GREEN
+
+	annotation = Ti.Map.createAnnotation applyConfig dict, defaults
+
+	annotation
 
 
 # TableView
