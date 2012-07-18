@@ -4,25 +4,21 @@
   Model = (function() {
 
     function Model() {
-      this.fileNames = {
-        config: "Config.json",
-        speakers: "Speakers.json",
-        talks: "Talks.json"
-      };
+      this.config = "config";
+      this.speakers = "speakers";
+      this.talks = "talks";
     }
 
     Model.prototype.getConfig = function() {
-      var file, response;
-      file = Titanium.Filesystem.getFile("" + this.fileNames.config);
-      response = JSON.parse(file.read().text);
-      return response;
+      if (Ti.App.Properties.hasProperty(this.config)) {
+        return Ti.App.Properties.getObject(this.config);
+      }
     };
 
     Model.prototype.getSpeakers = function() {
-      var file, response;
-      file = Titanium.Filesystem.getFile("" + this.fileNames.speakers);
-      response = JSON.parse(file.read().text);
-      return response;
+      if (Ti.App.Properties.hasProperty(this.speakers)) {
+        return Ti.App.Properties.getList(this.speakers);
+      }
     };
 
     return Model;

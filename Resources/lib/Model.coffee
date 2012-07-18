@@ -1,28 +1,20 @@
 class Model
 
 	constructor: ->	
-		
-		@fileNames =
-			config: "Config.json"
-			speakers: "Speakers.json"
-			talks: "Talks.json"
+		@config = "config"
+		@speakers = "speakers"
+		@talks = "talks"
 
+	# getConfig
 	getConfig: ->
 
-		file = Titanium.Filesystem.getFile("#{@fileNames.config}");
-
-		response = JSON.parse file.read().text
-
-		response
+		if Ti.App.Properties.hasProperty @config
+			Ti.App.Properties.getObject @config
 
 	# getSpeakers
 	getSpeakers: ->
-	
-		file = Titanium.Filesystem.getFile("#{@fileNames.speakers}")
 
-		response = JSON.parse file.read().text
-
-		response
-
+		if Ti.App.Properties.hasProperty @speakers
+			Ti.App.Properties.getList @speakers
 
 module.exports = Model
