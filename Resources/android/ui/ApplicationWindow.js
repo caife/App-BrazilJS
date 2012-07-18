@@ -18,7 +18,7 @@
       title: "BrazilJS",
       buttons: [
         {
-          icon: "/images/icons/Closed-Mail.png",
+          icon: "/images/New-Email.png",
           id: "share",
           width: 60
         }
