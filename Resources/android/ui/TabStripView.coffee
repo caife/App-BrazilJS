@@ -19,7 +19,7 @@ TabButton = (id, text, icon, index, selected) ->
 	# Title Label
 	self.add Ti.UI.createLabel
 		text: text
-		color: "#FFFFFF"
+		color: "#222222"
 		font: { fontWeight: "bold", fontSize: "14dp" }
 
 	# Separator View
@@ -28,20 +28,20 @@ TabButton = (id, text, icon, index, selected) ->
 			height: "45%"
 			right: 0
 			width: 1
-			backgroundColor: "#444444"
+			backgroundColor: "#222222"
 
-	# Footer View
-	view = Ti.UI.createView
+	# Active View
+	activeView = Ti.UI.createView
 		width: widthDefault
-		height: "6dp"
+		height: "4dp"
 		bottom: 0
-		backgroundColor: "#FFFFFF"
+		backgroundColor: "#222222"
 		visible: if selected then true else false
-	self.add view
+	self.add activeView
 
 	# Events handler
 	self.addEventListener "touchstart", ->
-		this.setBackgroundColor "#444444"
+		this.setBackgroundColor "#DDDDDD"
 
 	self.addEventListener "touchend", ->
 		this.setBackgroundColor "transparent"
@@ -51,7 +51,7 @@ TabButton = (id, text, icon, index, selected) ->
 
 	# Toggle tab
 	self.toggle = (active) ->
-		view.visible = active
+		activeView.visible = active
 
 	self
 
@@ -63,13 +63,25 @@ TabStripView = (dict) ->
 	index = 0
 	selectedIndex = 0
 
-	# View
 	self = Ti.UI.createView
-		width: Ti.UI.FILL
 		height: "50dp"
 		top: "44dp"
+
+	# Footer View
+	footerView = Ti.UI.createView
+		width: Ti.UI.FILL
+		height: "2dp"
+		bottom: 0
+		backgroundColor: "#222222"
+	self.add footerView
+
+	# View
+	tabsView = Ti.UI.createView
+		width: Ti.UI.FILL
+		height: "49dp"
 		layout: "horizontal"
-		backgroundColor: "#121212"
+		backgroundColor: "#DDDDDD"
+	self.add tabsView
 	
 	# Create Tabs
 	for key of dict.tabs
@@ -80,7 +92,7 @@ TabStripView = (dict) ->
 
 			# Create View
 			tab = new TabButton(key, d.title, d.icon, index, first)
-			self.add tab
+			tabsView.add tab
 			tabs.push tab
 			first = false
 
@@ -88,8 +100,6 @@ TabStripView = (dict) ->
 			((i,t) ->
 				t.addEventListener "click", ->
 
-					self.selectIndex i
-					
 					self.fireEvent "selected",
 						index: i
 
@@ -109,7 +119,6 @@ TabStripView = (dict) ->
 
 		toggleTab tab for tab in tabs
 
-	
 	# Return View
 	self
 

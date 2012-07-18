@@ -6,7 +6,7 @@
   };
 
   TabButton = function(id, text, icon, index, selected) {
-    var self, view, widthDefault;
+    var activeView, self, widthDefault;
     widthDefault = tabWidth();
     self = Ti.UI.createView({
       width: widthDefault,
@@ -18,7 +18,7 @@
     });
     self.add(Ti.UI.createLabel({
       text: text,
-      color: "#FFFFFF",
+      color: "#222222",
       font: {
         fontWeight: "bold",
         fontSize: "14dp"
@@ -29,19 +29,19 @@
         height: "45%",
         right: 0,
         width: 1,
-        backgroundColor: "#444444"
+        backgroundColor: "#222222"
       }));
     }
-    view = Ti.UI.createView({
+    activeView = Ti.UI.createView({
       width: widthDefault,
-      height: "6dp",
+      height: "4dp",
       bottom: 0,
-      backgroundColor: "#FFFFFF",
+      backgroundColor: "#222222",
       visible: selected ? true : false
     });
-    self.add(view);
+    self.add(activeView);
     self.addEventListener("touchstart", function() {
-      return this.setBackgroundColor("#444444");
+      return this.setBackgroundColor("#DDDDDD");
     });
     self.addEventListener("touchend", function() {
       return this.setBackgroundColor("transparent");
@@ -50,34 +50,44 @@
       return this.setBackgroundColor("transparent");
     });
     self.toggle = function(active) {
-      return view.visible = active;
+      return activeView.visible = active;
     };
     return self;
   };
 
   TabStripView = function(dict) {
-    var first, index, key, selectedIndex, self, tabs, _fn;
+    var first, footerView, index, key, selectedIndex, self, tabs, tabsView, _fn;
     tabs = [];
     first = true;
     index = 0;
     selectedIndex = 0;
     self = Ti.UI.createView({
-      width: Ti.UI.FILL,
       height: "50dp",
-      top: "44dp",
-      layout: "horizontal",
-      backgroundColor: "#121212"
+      top: "44dp"
     });
+    footerView = Ti.UI.createView({
+      width: Ti.UI.FILL,
+      height: "2dp",
+      bottom: 0,
+      backgroundColor: "#222222"
+    });
+    self.add(footerView);
+    tabsView = Ti.UI.createView({
+      width: Ti.UI.FILL,
+      height: "49dp",
+      layout: "horizontal",
+      backgroundColor: "#DDDDDD"
+    });
+    self.add(tabsView);
     _fn = function(key) {
       var d, tab;
       d = dict.tabs[key];
       tab = new TabButton(key, d.title, d.icon, index, first);
-      self.add(tab);
+      tabsView.add(tab);
       tabs.push(tab);
       first = false;
       (function(i, t) {
         return t.addEventListener("click", function() {
-          self.selectIndex(i);
           return self.fireEvent("selected", {
             index: i
           });
