@@ -9,16 +9,18 @@ View = ->
 	rows = []
 
 	# Create the View
-	self = new ui.createView
-		backgroundColor: "#FF0000"
+	self = ui.createView
+		backgroundColor: "#FFFFFF"
+
+	# Get data and set to rows Array
+	speakers = model.getSpeakers()
+	rows = (ui.createSpeakerRow speaker for speaker in speakers)
 
 	# Create TableView
-	tableView = new ui.createTableView()
-	self.add tableView
+	tableView = new ui.createTableView
+		data: rows
 
-	# speakers = model.getSpeakers()
-	# rows = (ui.createTalkerRow speaker for speaker in speakers)
-	# tableView.setData rows
+	self.add tableView
 
 	self
 
