@@ -40,7 +40,7 @@
         return mapOptions.addEventListener("click", function(e) {
           switch (e.index) {
             case 0:
-              return Localization.call(config.phone);
+              return Localization.makeCall(config.phone);
             case 1:
               return Localization.makeRoute(config.latitude, config.longitude);
           }

@@ -1,8 +1,9 @@
-exports.call = (phone) ->	
+exports.makeCall = (phone) ->
+	
 	phoneSchema = "tel:#{phone}"
 
-	if Titanium.Platform.canOpenURL phoneSchema
-		Titanium.Platform.openURL phoneSchema
+	if Ti.Platform.canOpenURL phoneSchema
+		Ti.Platform.openURL phoneSchema
 
 
 exports.makeRoute = (latitude, longitude) ->
@@ -18,5 +19,5 @@ exports.makeRoute = (latitude, longitude) ->
 
 			routeSchema = "http://maps.google.com/maps?z=0.005&saddr=#{latitude},#{longitude}&daddr=#{e.coords.latitude},#{e.coords.longitude}"
 
-			if Titanium.Platform.canOpenURL routeSchema
-				Titanium.Platform.openURL routeSchema
+			if Ti.Platform.canOpenURL routeSchema
+				Ti.Platform.openURL routeSchema

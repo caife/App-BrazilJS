@@ -51,7 +51,7 @@ Window = ->
 			mapOptions.addEventListener "click", (e) ->
 
 				switch e.index
-					when 0 then Localization.call config.phone
+					when 0 then Localization.makeCall config.phone
 					when 1 then Localization.makeRoute config.latitude, config.longitude
 
 	self
