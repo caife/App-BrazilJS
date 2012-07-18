@@ -32,8 +32,8 @@ exports.createView = (dict) ->
 # MapView
 exports.createMapView = (dict) ->
 
-	defaults = 
-		top: if isAndroid then 94 else 0
+	defaults =
+		top: 0
 
 	mapView = Ti.Map.createView applyConfig dict, defaults
 
@@ -56,7 +56,7 @@ exports.createMapAnnotation = (dict) ->
 exports.createTableView = (dict) ->
 
 	defaults = 
-		top: if isAndroid then 94 else 0
+		top: 0
 
 	tableView = Ti.UI.createTableView applyConfig dict, defaults
 
@@ -64,10 +64,36 @@ exports.createTableView = (dict) ->
 
 
 # TableViewRows
-exports.createTalkerRow = (dict) ->
+exports.createSpeakerRow = (dict) ->
 
 	self = Ti.UI.createTableViewRow
-		title: dict.name
+		speaker_obj: dict
+		height: Ti.UI.SIZE
+
+
+	image = Ti.UI.createImageView
+		image: "/images/speakers/#{dict.picture}"
+		left: "5dp"
+		top: "5dp"
+		bottom: "5dp"
+		height: "50dp"
+		width: "50dp"
+	self.add image
+
+	name = Ti.UI.createLabel
+		text: dict.name
+		left: "60dp"
+		top: "10dp"
+		font: { fontWeight: "bold", fontSize: "16dp" }
+	self.add name
+
+	company = Ti.UI.createLabel
+		text: dict.company
+		left: "60dp"
+		top: "30dp"
+		color: "#666"
+		font: { fontSize: "14dp" }
+	self.add company
 
 	self
 

@@ -32,7 +32,7 @@
   exports.createMapView = function(dict) {
     var defaults, mapView;
     defaults = {
-      top: isAndroid ? 94 : 0
+      top: 0
     };
     mapView = Ti.Map.createView(applyConfig(dict, defaults));
     return mapView;
@@ -58,11 +58,41 @@
     return tableView;
   };
 
-  exports.createTalkerRow = function(dict) {
-    var self;
+  exports.createSpeakerRow = function(dict) {
+    var company, image, name, self;
     self = Ti.UI.createTableViewRow({
-      title: dict.name
+      speaker_obj: dict,
+      height: Ti.UI.SIZE
     });
+    image = Ti.UI.createImageView({
+      image: "/images/speakers/" + dict.picture,
+      left: "5dp",
+      top: "5dp",
+      bottom: "5dp",
+      height: "50dp",
+      width: "50dp"
+    });
+    self.add(image);
+    name = Ti.UI.createLabel({
+      text: dict.name,
+      left: "60dp",
+      top: "10dp",
+      font: {
+        fontWeight: "bold",
+        fontSize: "16dp"
+      }
+    });
+    self.add(name);
+    company = Ti.UI.createLabel({
+      text: dict.company,
+      left: "60dp",
+      top: "30dp",
+      color: "#666",
+      font: {
+        fontSize: "14dp"
+      }
+    });
+    self.add(company);
     return self;
   };
 
