@@ -45,7 +45,7 @@ exports.createMapAnnotation = (dict) ->
 	defaults = 
 		draggable: false
 		animate: true
-		pincolor: Ti.Map.ANNOTATION_GREEN
+		pincolor: Ti.Map.ANNOTATION_RED
 
 	annotation = Ti.Map.createAnnotation applyConfig dict, defaults
 
@@ -68,6 +68,7 @@ exports.createSpeakerRow = (dict) ->
 
 	self = Ti.UI.createTableViewRow
 		speaker_obj: dict
+		hasChild: if isAndroid then false else true
 		height: Ti.UI.SIZE
 
 
@@ -84,6 +85,8 @@ exports.createSpeakerRow = (dict) ->
 		text: dict.name
 		left: "60dp"
 		top: "10dp"
+		color: "#000000"
+		highlightedColor: "#FFFFFF"
 		font: { fontWeight: "bold", fontSize: "16dp" }
 	self.add name
 
@@ -91,7 +94,8 @@ exports.createSpeakerRow = (dict) ->
 		text: dict.company
 		left: "60dp"
 		top: "30dp"
-		color: "#666"
+		color: "#666666"
+		highlightedColor: "#FFFFFF"
 		font: { fontSize: "14dp" }
 	self.add company
 

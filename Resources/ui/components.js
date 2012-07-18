@@ -43,7 +43,7 @@
     defaults = {
       draggable: false,
       animate: true,
-      pincolor: Ti.Map.ANNOTATION_GREEN
+      pincolor: Ti.Map.ANNOTATION_RED
     };
     annotation = Ti.Map.createAnnotation(applyConfig(dict, defaults));
     return annotation;
@@ -62,6 +62,7 @@
     var company, image, name, self;
     self = Ti.UI.createTableViewRow({
       speaker_obj: dict,
+      hasChild: isAndroid ? false : true,
       height: Ti.UI.SIZE
     });
     image = Ti.UI.createImageView({
@@ -77,6 +78,8 @@
       text: dict.name,
       left: "60dp",
       top: "10dp",
+      color: "#000000",
+      highlightedColor: "#FFFFFF",
       font: {
         fontWeight: "bold",
         fontSize: "16dp"
@@ -87,7 +90,8 @@
       text: dict.company,
       left: "60dp",
       top: "30dp",
-      color: "#666",
+      color: "#666666",
+      highlightedColor: "#FFFFFF",
       font: {
         fontSize: "14dp"
       }
