@@ -38,10 +38,6 @@ Window = ->
 				title: L("localization")
 				icon: "/images/icons/Navigation-Map.png"
 
-			twitter:
-				title: L("twitter")
-				icon: "/images/icons/Twitter-New.png"
-
 	self.add tabStripView
 
 	# View Controller

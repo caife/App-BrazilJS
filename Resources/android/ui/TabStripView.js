@@ -2,38 +2,55 @@
   var TabButton, TabStripView, tabWidth;
 
   tabWidth = function() {
-    return Ti.Platform.displayCaps.platformWidth / 4;
+    return Ti.Platform.displayCaps.platformWidth / 3;
   };
 
   TabButton = function(id, text, icon, index, selected) {
-    var self;
+    var self, view, widthDefault;
+    widthDefault = tabWidth();
     self = Ti.UI.createView({
-      width: tabWidth(),
-      opacity: 0.8,
-      backgroundColor: selected ? "#444444" : "transparent",
+      width: widthDefault,
+      opacity: 1.0,
+      backgroundColor: "transparent",
       id: id,
       index: index,
       selected: selected
     });
-    self.add(Ti.UI.createImageView({
-      image: icon,
-      top: "6dp",
-      height: "25dp"
-    }));
     self.add(Ti.UI.createLabel({
       text: text,
       color: "#FFFFFF",
-      bottom: "3dp",
       font: {
-        fontSize: "10dp"
+        fontWeight: "bold",
+        fontSize: "14dp"
       }
     }));
+    if (index === 0 || index === 1) {
+      self.add(Ti.UI.createView({
+        height: "45%",
+        right: 0,
+        width: 1,
+        backgroundColor: "#444444"
+      }));
+    }
+    view = Ti.UI.createView({
+      width: widthDefault,
+      height: "6dp",
+      bottom: 0,
+      backgroundColor: "#FFFFFF",
+      visible: selected ? true : false
+    });
+    self.add(view);
+    self.addEventListener("touchstart", function() {
+      return this.setBackgroundColor("#444444");
+    });
+    self.addEventListener("touchend", function() {
+      return this.setBackgroundColor("transparent");
+    });
+    self.addEventListener("touchcancel", function() {
+      return this.setBackgroundColor("transparent");
+    });
     self.toggle = function(active) {
-      if (active === true) {
-        return self.setBackgroundColor("#444444");
-      } else {
-        return self.setBackgroundColor("transparent");
-      }
+      return view.visible = active;
     };
     return self;
   };

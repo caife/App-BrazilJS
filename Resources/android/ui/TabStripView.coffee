@@ -1,39 +1,57 @@
 # Get width of individual tab
 tabWidth = ->
-	Ti.Platform.displayCaps.platformWidth / 4
+	Ti.Platform.displayCaps.platformWidth / 3
 
 # Create a single TabButton
 TabButton = (id, text, icon, index, selected) ->
 
+	widthDefault = tabWidth()
+
 	# View
 	self = Ti.UI.createView
-		width: tabWidth()
-		opacity: 0.8
-		backgroundColor: if selected then "#444444" else "transparent"
+		width: widthDefault
+		opacity: 1.0
+		backgroundColor: "transparent"
 		id: id
 		index: index
 		selected: selected
-
-	# Icon ImageView
-	self.add Ti.UI.createImageView
-		image: icon
-		top: "6dp"
-		height: "25dp"
 
 	# Title Label
 	self.add Ti.UI.createLabel
 		text: text
 		color: "#FFFFFF"
-		bottom: "3dp"
-		font:
-			fontSize: "10dp"
+		font: { fontWeight: "bold", fontSize: "14dp" }
+
+	# Separator View
+	if index == 0 or index == 1
+		self.add Ti.UI.createView
+			height: "45%"
+			right: 0
+			width: 1
+			backgroundColor: "#444444"
+
+	# Footer View
+	view = Ti.UI.createView
+		width: widthDefault
+		height: "6dp"
+		bottom: 0
+		backgroundColor: "#FFFFFF"
+		visible: if selected then true else false
+	self.add view
+
+	# Events handler
+	self.addEventListener "touchstart", ->
+		this.setBackgroundColor "#444444"
+
+	self.addEventListener "touchend", ->
+		this.setBackgroundColor "transparent"
+
+	self.addEventListener "touchcancel", ->
+		this.setBackgroundColor "transparent"
 
 	# Toggle tab
 	self.toggle = (active) ->
-		if active == true
-			self.setBackgroundColor("#444444")
-		else
-			self.setBackgroundColor("transparent")
+		view.visible = active
 
 	self
 
