@@ -10,19 +10,20 @@
     self = new ui.createWindow({
       title: L("speakers")
     });
-    tableView = new ui.createTableView();
-    self.add(tableView);
     speakers = model.getSpeakers();
     rows = (function() {
       var _i, _len, _results;
       _results = [];
       for (_i = 0, _len = speakers.length; _i < _len; _i++) {
         speaker = speakers[_i];
-        _results.push(ui.createTalkerRow(speaker));
+        _results.push(ui.createSpeakerRow(speaker));
       }
       return _results;
     })();
-    tableView.setData(rows);
+    tableView = new ui.createTableView({
+      data: rows
+    });
+    self.add(tableView);
     return self;
   };
 
