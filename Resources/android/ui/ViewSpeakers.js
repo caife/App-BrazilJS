@@ -8,7 +8,7 @@
     model = new Model();
     rows = [];
     self = ui.createView({
-      backgroundColor: "#FF0000"
+      backgroundColor: "#FFFFFF"
     });
     speakers = model.getSpeakers();
     rows = (function() {

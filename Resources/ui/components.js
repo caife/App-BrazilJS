@@ -52,7 +52,7 @@
   exports.createTableView = function(dict) {
     var defaults, tableView;
     defaults = {
-      top: isAndroid ? 94 : 0
+      top: 0
     };
     tableView = Ti.UI.createTableView(applyConfig(dict, defaults));
     return tableView;
