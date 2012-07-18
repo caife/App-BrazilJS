@@ -1,19 +1,19 @@
 ActionBarView = (dict) ->
 
-	buttonOffset = 5
+	buttonOffset = 0
 
 	# Create the View
 	self = Ti.UI.createView
 		height: "44dp"
 		top: 0
-		backgroundColor: "#006400"
+		backgroundColor: "#222222"
 
 	# If have title, show a label. If have not, show an image.
 	if dict.title
 
 		self.add Ti.UI.createLabel
 			text: dict.title
-			left: 5
+			left: "5dp"
 			color: "#FFF"
 			font:
 				fontSize: "18dp"
@@ -22,7 +22,7 @@ ActionBarView = (dict) ->
 
 		self.add Ti.UI.createImageView
 			image: "/images/appc_white.png"
-			left: 5
+			left: "5dp"
 
 	# Methods
 	createActionBarButton = (b) ->
@@ -51,8 +51,8 @@ ActionBarView = (dict) ->
 
 			buttonIcon = Ti.UI.createImageView
 				image: b.icon
-				height: "30dp"
-				width: "30dp"
+				height: "32dp"
+				width: "32dp"
 
 			button.add(buttonIcon);
 

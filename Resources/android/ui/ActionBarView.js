@@ -3,16 +3,16 @@
 
   ActionBarView = function(dict) {
     var button, buttonOffset, createActionBarButton, self, _fn, _i, _len, _ref;
-    buttonOffset = 5;
+    buttonOffset = 0;
     self = Ti.UI.createView({
       height: "44dp",
       top: 0,
-      backgroundColor: "#006400"
+      backgroundColor: "#222222"
     });
     if (dict.title) {
       self.add(Ti.UI.createLabel({
         text: dict.title,
-        left: 5,
+        left: "5dp",
         color: "#FFF",
         font: {
           fontSize: "18dp",
@@ -22,7 +22,7 @@
     } else {
       self.add(Ti.UI.createImageView({
         image: "/images/appc_white.png",
-        left: 5
+        left: "5dp"
       }));
     }
     createActionBarButton = function(b) {
@@ -47,8 +47,8 @@
       } else if (b.icon) {
         buttonIcon = Ti.UI.createImageView({
           image: b.icon,
-          height: "30dp",
-          width: "30dp"
+          height: "32dp",
+          width: "32dp"
         });
         button.add(buttonIcon);
       }
