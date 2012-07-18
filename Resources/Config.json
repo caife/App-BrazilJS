@@ -4,7 +4,7 @@
 	"twitter_handle": "braziljs",
 	"mail_contact": "",
 	"theme": {
-		"barColor": "#006400"
+		"barColor": "null"
 	},
 	"localization": {
 		"latitude": -30.022626,
