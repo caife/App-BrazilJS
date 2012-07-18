@@ -3,7 +3,6 @@
   exports.makeCall = function(phone) {
     var phoneSchema;
     phoneSchema = "tel:" + phone;
-    alert(phoneSchema);
     if (Ti.Platform.canOpenURL(phoneSchema)) {
       return Ti.Platform.openURL(phoneSchema);
     }
