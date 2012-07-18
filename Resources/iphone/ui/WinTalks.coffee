@@ -10,15 +10,11 @@ Window = ->
 
 	# Create the Window
 	self = new ui.createWindow
-		title: L("speakers")
+		title: L("talks")
 
 	# Create TableView
 	tableView = new ui.createTableView()
 	self.add tableView
-
-	speakers = model.getSpeakers()
-	rows = (ui.createTalkerRow speaker for speaker in speakers)
-	tableView.setData rows
 
 	self
 
