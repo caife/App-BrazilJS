@@ -18,7 +18,7 @@ View = ->
 
 	# Create TableView
 	tableView = new ui.createTableView
-		separatorColor: "#777777"
+		separatorColor: "#BEBEBE"
 		data: rows
 
 	self.add tableView
