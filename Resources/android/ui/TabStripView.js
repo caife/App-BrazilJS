@@ -1,121 +1,123 @@
 (function() {
-  var TabButton, TabStripView, tabWidth;
+  var TabStripView;
 
-  tabWidth = function() {
-    return Ti.Platform.displayCaps.platformWidth / 3;
-  };
+  TabStripView = (function() {
 
-  TabButton = function(id, text, icon, index, selected) {
-    var activeView, self, widthDefault;
-    widthDefault = tabWidth();
-    self = Ti.UI.createView({
-      width: widthDefault,
-      opacity: 1.0,
-      backgroundColor: "transparent",
-      id: id,
-      index: index,
-      selected: selected
-    });
-    self.add(Ti.UI.createLabel({
-      text: text,
-      color: "#222222",
-      font: {
-        fontWeight: "bold",
-        fontSize: "14dp"
+    function TabStripView(dict) {
+      var footerView, self, tab, tabsView, _fn, _i, _len, _ref;
+      self = this;
+      this.dict = dict;
+      this.tabWidth = Ti.Platform.displayCaps.platformWidth / this.dict.tabs.length;
+      this.tabs = [];
+      this.index = 0;
+      this.selectedIndex = 0;
+      this.tabStripView = Ti.UI.createView({
+        height: "50dp",
+        top: "44dp"
+      });
+      footerView = Ti.UI.createView({
+        width: Ti.UI.FILL,
+        height: "2dp",
+        bottom: 0,
+        backgroundColor: this.dict.borderColor
+      });
+      this.tabStripView.add(footerView);
+      tabsView = Ti.UI.createView({
+        width: Ti.UI.FILL,
+        height: "49dp",
+        layout: "horizontal",
+        backgroundColor: this.dict.backgroundColor
+      });
+      this.tabStripView.add(tabsView);
+      _ref = dict.tabs;
+      _fn = function(tab) {
+        var tabView;
+        tabView = self.createTabButton(tab);
+        self.tabs.push(tabView);
+        return tabsView.add(tabView);
+      };
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        tab = _ref[_i];
+        _fn(tab);
       }
-    }));
-    if (index === 0 || index === 1) {
-      self.add(Ti.UI.createView({
-        height: "45%",
-        right: 0,
-        width: 1,
-        backgroundColor: "#222222"
-      }));
+      this.tabStripView.selectIndex = function(index) {
+        var tab, _j, _len2, _ref2, _results;
+        _ref2 = self.tabs;
+        _results = [];
+        for (_j = 0, _len2 = _ref2.length; _j < _len2; _j++) {
+          tab = _ref2[_j];
+          _results.push((function(tab) {
+            if (tab.index === index) {
+              return tab.toggle(true);
+            } else {
+              return tab.toggle(false);
+            }
+          })(tab));
+        }
+        return _results;
+      };
+      return this.tabStripView;
     }
-    activeView = Ti.UI.createView({
-      width: widthDefault,
-      height: "4dp",
-      bottom: 0,
-      backgroundColor: "#222222",
-      visible: selected ? true : false
-    });
-    self.add(activeView);
-    self.addEventListener("touchstart", function() {
-      return this.setBackgroundColor("#DDDDDD");
-    });
-    self.addEventListener("touchend", function() {
-      return this.setBackgroundColor("transparent");
-    });
-    self.addEventListener("touchcancel", function() {
-      return this.setBackgroundColor("transparent");
-    });
-    self.toggle = function(active) {
-      return activeView.visible = active;
-    };
-    return self;
-  };
 
-  TabStripView = function(dict) {
-    var first, footerView, index, key, selectedIndex, self, tabs, tabsView, _fn;
-    tabs = [];
-    first = true;
-    index = 0;
-    selectedIndex = 0;
-    self = Ti.UI.createView({
-      height: "50dp",
-      top: "44dp"
-    });
-    footerView = Ti.UI.createView({
-      width: Ti.UI.FILL,
-      height: "2dp",
-      bottom: 0,
-      backgroundColor: "#222222"
-    });
-    self.add(footerView);
-    tabsView = Ti.UI.createView({
-      width: Ti.UI.FILL,
-      height: "49dp",
-      layout: "horizontal",
-      backgroundColor: "#DDDDDD"
-    });
-    self.add(tabsView);
-    _fn = function(key) {
-      var d, tab;
-      d = dict.tabs[key];
-      tab = new TabButton(key, d.title, d.icon, index, first);
-      tabsView.add(tab);
-      tabs.push(tab);
-      first = false;
+    TabStripView.prototype.createTabButton = function(d) {
+      var activeView, self, tab;
+      self = this;
+      tab = Ti.UI.createView({
+        width: this.tabWidth,
+        backgroundColor: "transparent",
+        index: this.index,
+        selected: this.index === 0 ? true : false
+      });
+      tab.add(Ti.UI.createLabel({
+        text: d.title,
+        color: this.dict.titleColor,
+        font: {
+          fontWeight: "bold",
+          fontSize: "14dp"
+        }
+      }));
+      if (this.index === 0 || this.index === 1) {
+        tab.add(Ti.UI.createView({
+          height: "45%",
+          right: 0,
+          width: 1,
+          backgroundColor: this.dict.separatorColor
+        }));
+      }
+      activeView = Ti.UI.createView({
+        width: this.tabWidth,
+        height: "4dp",
+        bottom: 0,
+        backgroundColor: this.dict.borderColor,
+        visible: this.index === 0 ? true : false
+      });
+      tab.add(activeView);
+      tab.addEventListener("touchstart", function() {
+        return this.setBackgroundColor(self.dict.selectedColor);
+      });
+      tab.addEventListener("touchend", function() {
+        return this.setBackgroundColor("transparent");
+      });
+      tab.addEventListener("touchcancel", function() {
+        return this.setBackgroundColor("transparent");
+      });
+      tab.toggle = function(active) {
+        return activeView.visible = active;
+      };
       (function(i, t) {
         return t.addEventListener("click", function() {
-          return self.fireEvent("selected", {
+          return self.tabStripView.fireEvent("selected", {
             index: i
           });
         });
-      })(index, tab);
-      return index++;
+      })(this.index, tab);
+      this.index++;
+      return tab;
     };
-    for (key in dict.tabs) {
-      _fn(key);
-    }
-    self.selectIndex = function(index) {
-      var tab, toggleTab, _i, _len, _results;
-      toggleTab = function(tab) {
-        if (tab.index === index) {
-          return tab.toggle(true);
-        } else {
-          return tab.toggle(false);
-        }
-      };
-      _results = [];
-      for (_i = 0, _len = tabs.length; _i < _len; _i++) {
-        tab = tabs[_i];
-        _results.push(toggleTab(tab));
-      }
-      return _results;
-    };
-    return self;
-  };
+
+    return TabStripView;
+
+  })();
 
   module.exports = TabStripView;
 
