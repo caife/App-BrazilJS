@@ -31,13 +31,6 @@ TabGroup = ->
 		window: new WinLocalization()
 	self.addTab(tabLocalization)
 
-	# Twitter
-	tabTwitter = Ti.UI.createTab
-		title: L("twitter")
-		icon: "/images/icons/Twitter-New.png"
-		window: new WinTwitter()
-	self.addTab(tabTwitter)
-
 	self
 
 

@@ -2,7 +2,7 @@
   var TabGroup;
 
   TabGroup = function() {
-    var WinLocalization, WinSpeakers, WinTalks, WinTwitter, self, tabLocalization, tabSpeakers, tabTalks, tabTwitter;
+    var WinLocalization, WinSpeakers, WinTalks, WinTwitter, self, tabLocalization, tabSpeakers, tabTalks;
     WinSpeakers = require("/ui/WinSpeakers");
     WinTalks = require("/ui/WinTalks");
     WinLocalization = require("/ui/WinLocalization");
@@ -26,12 +26,6 @@
       window: new WinLocalization()
     });
     self.addTab(tabLocalization);
-    tabTwitter = Ti.UI.createTab({
-      title: L("twitter"),
-      icon: "/images/icons/Twitter-New.png",
-      window: new WinTwitter()
-    });
-    self.addTab(tabTwitter);
     return self;
   };
 
