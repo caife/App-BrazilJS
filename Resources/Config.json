@@ -4,7 +4,22 @@
 	"twitter_handle": "braziljs",
 	"mail_contact": "",
 	"theme": {
-		"barColor": "null"
+		"android": {
+			"selectedColor": "#4DA9CA",
+			"actionBar": {
+				"titleColor": "#FFFFFF",
+				"backgroundColor": "#222222"
+			},
+			"tabStripView": {
+				"titleColor": "#222222",
+				"separatorColor": "#222222",
+				"borderColor": "#222222",
+				"backgroundColor": "#DDDDDD"
+			}
+		},
+		"ios": {
+			"barColor": "null"
+		}
 	},
 	"localization": {
 		"latitude": -30.022626,
