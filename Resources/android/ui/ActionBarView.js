@@ -1,40 +1,52 @@
 (function() {
   var ActionBarView;
 
-  ActionBarView = function(dict) {
-    var button, buttonOffset, createActionBarButton, self, _fn, _i, _len, _ref;
-    buttonOffset = 0;
-    self = Ti.UI.createView({
-      height: "44dp",
-      top: 0,
-      backgroundColor: "#222222"
-    });
-    if (dict.title) {
-      self.add(Ti.UI.createLabel({
-        text: dict.title,
-        left: "5dp",
-        color: "#FFF",
-        font: {
-          fontSize: "18dp",
-          fontWeight: "bold"
-        }
-      }));
-    } else {
-      self.add(Ti.UI.createImageView({
-        image: "/images/appc_white.png",
-        left: "5dp"
-      }));
+  ActionBarView = (function() {
+
+    function ActionBarView(dict) {
+      var button, _i, _len, _ref;
+      this.dict = dict;
+      this.buttonOffset = 0;
+      this.actionBarView = Ti.UI.createView({
+        height: "44dp",
+        top: 0,
+        backgroundColor: this.dict.backgroundColor
+      });
+      if (typeof this.dict.title !== "undefined") {
+        this.actionBarView.add(Ti.UI.createLabel({
+          text: this.dict.title,
+          left: "5dp",
+          color: this.dict.titleColor,
+          font: {
+            fontSize: "18dp",
+            fontWeight: "bold"
+          }
+        }));
+      } else {
+        this.actionBarView.add(Ti.UI.createImageView({
+          image: this.dict.icon,
+          left: "5dp"
+        }));
+      }
+      _ref = this.dict.buttons;
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        button = _ref[_i];
+        this.createActionBarButton(button);
+      }
+      return this.actionBarView;
     }
-    createActionBarButton = function(b) {
-      var button, buttonIcon, buttonLabel;
+
+    ActionBarView.prototype.createActionBarButton = function(b) {
+      var button, buttonIcon, buttonLabel, self;
+      self = this;
       button = Ti.UI.createView({
         width: "" + b.width + "dp",
-        right: "" + buttonOffset + "dp"
+        right: "" + this.buttonOffset + "dp"
       });
       if (b.title) {
         buttonLabel = Ti.UI.createLabel({
           text: b.title,
-          color: "#FFF",
+          color: this.dict.titleColor,
           height: Ti.UI.SIZE,
           width: Ti.UI.SIZE,
           textAlign: "center",
@@ -52,30 +64,33 @@
         });
         button.add(buttonIcon);
       }
-      self.add(button);
-      self.add(Ti.UI.createView({
+      this.actionBarView.add(button);
+      this.actionBarView.add(Ti.UI.createView({
         backgroundColor: "#DEDEDE",
         width: 1,
         height: Ti.UI.FILL,
-        right: buttonOffset + b.width + 1 + "dp"
+        right: this.buttonOffset + b.width + 1 + "dp"
       }));
       button.addEventListener("click", function() {
-        return self.fireEvent("buttonPress", {
+        return self.actionBarView.fireEvent("buttonPress", {
           id: b.id
         });
       });
-      return buttonOffset += b.width + 7;
+      button.addEventListener("touchstart", function() {
+        return this.setBackgroundColor(self.dict.selectedColor);
+      });
+      button.addEventListener("touchend", function() {
+        return this.setBackgroundColor("transparent");
+      });
+      button.addEventListener("touchcancel", function() {
+        return this.setBackgroundColor("transparent");
+      });
+      return this.buttonOffset += b.width + 7;
     };
-    _ref = dict.buttons;
-    _fn = function(button) {
-      return createActionBarButton(button);
-    };
-    for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-      button = _ref[_i];
-      _fn(button);
-    }
-    return self;
-  };
+
+    return ActionBarView;
+
+  })();
 
   module.exports = ActionBarView;
 
