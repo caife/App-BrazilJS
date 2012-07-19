@@ -27,6 +27,14 @@
       }
     };
 
+    Model.prototype.getSpeaker = function(id) {
+      var speakers;
+      if (Ti.App.Properties.hasProperty(this.speakers)) {
+        speakers = Ti.App.Properties.getList(this.speakers);
+        return speakers[id];
+      }
+    };
+
     return Model;
 
   })();
