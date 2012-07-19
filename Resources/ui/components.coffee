@@ -101,6 +101,15 @@ exports.createSpeakerRow = (dict) ->
 
 	self
 
+exports.createTalkRow = (dict) ->
+
+	self = Ti.UI.createTableViewRow
+		talk_obj: dict
+		hasChild: if isAndroid then false else true
+		height: Ti.UI.SIZE
+		title: dict.name
+
+	self
 
 # CoffeeScript extends
 applyConfig = (object, config) ->

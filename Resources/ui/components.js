@@ -100,6 +100,17 @@
     return self;
   };
 
+  exports.createTalkRow = function(dict) {
+    var self;
+    self = Ti.UI.createTableViewRow({
+      talk_obj: dict,
+      hasChild: isAndroid ? false : true,
+      height: Ti.UI.SIZE,
+      title: dict.name
+    });
+    return self;
+  };
+
   applyConfig = function(object, config) {
     return extend(extend({}, object), config);
   };
