@@ -3,71 +3,85 @@
 		"name": "Brendan Eich",
 		"company": "Mozilla",
 		"picture": "brendan.png",
+		"twitter_handle": "brendaneich",
 		"description": "Brendan Eich é CTO da Mozilla e amplamente reconhecido por suas contribuições para a evolução da Internet. Em 1995, Eich inventou o JavaScript (ECMAScript), a linguagem de programação mais utilizada na internet. Ele também é um dos co-fundadores do projeto Mozilla.org em 1998, atuando como arquiteto chefe. Eich ajudou no lançamento do Firefox em novembro de 2004 e do ThunderBird em dezembro de 2004. Hoje, o foco central de Eich está em guiar o trabalho técnico futuro da Mozilla, para mante-la forte e competitiva. Na grande comunidade Web, Eich permanece dedicado em veicular a inovação nas tecnologias para internet e seu trabalho com JavaScript e com as plataformas Mozilla. Em agosto de 2005, Eich se tornou CTO da Mozilla. Ele também tem sido um membro do conselho da Mozilla Fundation desde sua criação, em 2003. Ele é Bacharel em Matemática e Ciências da Computação, graduado na Universidade de Santa Clara, e também é Md. em Ciências da Computação pela Universidade de Illinois."
 	},{
 		"name": "Richard D. Worth",
 		"company": "jQuery UI/Bocoup",
 		"picture": "richard.png",
+		"twitter_handle": "rworth",
 		"description": "Richard D. Worth é diretor executivo da jQuery Foundation e líder do projeto jQuery UI. Ele mora em Washington, D.C. e trabalha na Bocoup, treinando desenvolvedores em JavaScript, jQuery, and jQuery UI."
 	},{
 		"name": "Fat",
 		"company": "Twitter",
 		"picture": "fat.png",
+		"twitter_handle": "fat",
 		"description": "Fat é engenheiro no Twitter e co-author de vários projetos interessantes e conhecidos na comunidade JavaScript, entre eles: Bootstrap, Ender, Hogan.js."
 	},{
 		"name": "Michal Budzynski",
 		"company": "OnGameStart / AntarticJS",
 		"picture": "michal.png",
+		"twitter_handle": "brendaneich",
 		"description": "Michal é um alquimista da Open Web de Varsóvia, Polônia, responsável por muitos experimentos ridículos como o CSS Nyan Cat e All your gradient are belong to us. Recentemente organizou a onGameStart, a primeira conferência de jogos em HTML5 e quer trazer Javascript para o continente esquecido - a Antártica, com o AntarcticJS. Ele afirma com segurança que fazer da web um lugar melhor não é só seu trabalho - é seu estilo de vida. É por isso que criou a BLYSK, a primeira ferramenta séria de animação para a web (em breve)."
 	},{
 		"name": "Mike Taylor",
 		"company": "Opera",
 		"picture": "mike.png",
+		"twitter_handle": "brendaneich",
 		"description": "Mike Taylor trabalha para a Opera Software nos times de Developer Relations e Site Compatibility. Ele lê muitos e-mails e algumas vezes eles o deixam escrever JavaScript."
 	},{
 		"name": "Leonardo Balter",
 		"company": "Mozilla Rep / Estante Virtual",
 		"picture": "leonardo.png",
+		"twitter_handle": "brendaneich",
 		"description": "Leo Balter é Representante Mozilla e desenvolvedor FrontEnd na Estante Virtual além de membro do RioJS. Apaixonado pela Web e tecnologias abertas que a integram, atualmente está engajado em alguns projetos open source como o B2G, MDN e outros relacionados a OpenData no Brasil."
 	},{
 		"name": "Zeno Rocha",
 		"company": "Liferay",
 		"picture": "zeno.png",
+		"twitter_handle": "brendaneich",
 		"description": "Zeno Rocha é Front-end Engineer na Liferay. Com apenas 21 anos, já foi desenvolvedor de software na Petrobras e desenvolvedor front-end no Globoesporte.com. É um dos criadores do projeto jQuery Boilerplate, do experimento Wormz que foi destaque no Chrome Experiments, lider da tradução para português do livro Dive into HTML5 e também é estudante de Sistemas de Informação na Universidade Federal do Estado do Rio de Janeiro - UNIRIO."
 	},{
 		"name": "Eduardo Lundgren",
 		"company": "Liferay",
 		"picture": "eduardo.png",
+		"twitter_handle": "brendaneich",
 		"description": "Um dos criadores do AlloyUI, sempre se envolve em projetos open source, ex-contribuidor do jQuery e jQuery UI. Graduado em Engenharia de Telecomunicações pela UPE e Mestrando em Ciência da Computação na UFPE. Atualmente é líder de desenvolvimento na Liferay."
 	},{
 		"name": "Renato Mangini",
 		"company": "Google",
 		"picture": "renato.png",
+		"twitter_handle": "brendaneich",
 		"description": "Renato Mangini trabalha na equipe Chrome do Google. Seu objetivo é ajudar a comunidade de desenvolvedores web a transformar tecnologia web em produtos mágicos e surpreendentes."
 	},{
 		"name": "Davidson Fellipe",
 		"company": "Globo.com",
 		"picture": "davidson.png",
+		"twitter_handle": "brendaneich",
 		"description": "Graduado em engenharia da computação pela UPE e técnico em eletrônica pelo IFPE. Fundador e moderador dos grupos riojs e pernambucojs. Atualmente é Desenvolvedor Frontend na Globo.com e Mestrando em Informática na PUC-Rio."
 	},{
 		"name": "Daniel Filho",
 		"company": "IG",
 		"picture": "daniel.png",
+		"twitter_handle": "brendaneich",
 		"description": "Daniel Filho é programador front end, com grande foco no desenvolvimento de interfaces e interações. Com experiência em aplicações web móveis, sempre focando a performance do HTML, CSS e JavaScript."
 	},{
 		"name": "Benjamin E Alman",
 		"company": "Cowboy / Bocoup",
 		"picture": "benjamin.png",
+		"twitter_handle": "brendaneich",
 		"description": "Ben Alman trabalha atualmente na Bocoup, onde é responsável pelo currículo de treinamentos em desenvolvimento em JavaScript e jQuery intermediário e avançados, além da criação e manutenção de ferramentas baseadas em JavaScript. Em adição, Ben escreve artigos e palestra sobre boas práticas com JavaScript. Ben criou e mantém um número de vários projetos JavaScript open source populares, além de plugins jQuery, e é um contribuidor frequente do jQuery, jQuery mobile e Modernizr."
 	},{
 		"name": "Maximiliano Firtman",
 		"company": "Firt",
 		"picture": "maximiliano.png",
+		"twitter_handle": "brendaneich",
 		"description": "Max Firtman é um desenvolvedor mobile+web, professor, palestrante e escritor. É um dos campeões Adobe Community e fundador do ITMaster Professional Training. Escreveu diversos livros, incluindo “Programming the Moblie Web” e “jQuery Mobile: Up and Running”, publicados pela O’Reilly. Ele tem um blog sobre desenvolvimento web mobile em www.mobilexweb.com e tambem mantém o website www.mobilehtml5.org. Frequentemente, palestra em conferências, incluindo a QCon, OSCON, Breaking Development, Velocity Conference, Fluent, Google Developer Day, Nokia Developers Day, Campus Party Europe e diversos outros ao redor do mundo. Recebeu também alguns reconhecimentos mais, como o reconhecimento Google para a pessoa mais inovativa entre desenvolvedores mobile e campeão do Nokia Developer desde 2006."
 	},{
 		"name": "Dave Herman",
 		"company": "Mozilla",
 		"picture": "david.png",
+		"twitter_handle": "brendaneich",
 		"description": "Dave Herman é um Pesquisador Sênior na Mozilla. Ele trabalha com diversas coisas, incluindo JavaScript e Rust."
 	}
 ]
