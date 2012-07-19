@@ -1,4 +1,4 @@
-Window = ->
+Window = (dict) ->
 
 	# Requirements
 	Model = require "/lib/Model"
@@ -6,6 +6,8 @@ Window = ->
 
 	# Instance Model object
 	model = new Model()
+	rowSelected = null
+	rowSelectedIndex = null
 	rows = []
 
 	# Create the Window
@@ -21,6 +23,29 @@ Window = ->
 		data: rows
 
 	self.add tableView
+
+	# Events handler
+	tableView.addEventListener "click", (e) ->
+
+		# Select row
+		rowSelectedIndex = e.index
+		rowSelected = e.row
+		tableView.selectRow(e.index, { animated : false })
+		
+		# Open Window
+		speaker_obj = e.rowData.speaker_obj
+
+		WinSpeaker = require "/ui/WinSpeaker"
+		winSpeaker = new WinSpeaker(speaker_obj)
+		dict.currenTab.open winSpeaker
+
+
+	# Deselect row
+	self.addEventListener "focus", ->
+		setTimeout(->
+			if rowSelectedIndex != null
+				tableView.deselectRow(rowSelectedIndex, { duration: 150 })
+		, 100)
 
 	self
 
