@@ -3,7 +3,6 @@ TabGroup = ->
 	WinSpeakers = require "/ui/WinSpeakers"
 	WinTalks = require "/ui/WinTalks"
 	WinLocalization = require "/ui/WinLocalization"
-	WinTwitter = require "/ui/WinTwitter"
 
 	# Create TabGroup
 	self = Ti.UI.createTabGroup()

@@ -2,11 +2,10 @@
   var TabGroup;
 
   TabGroup = function() {
-    var WinLocalization, WinSpeakers, WinTalks, WinTwitter, self, tabLocalization, tabSpeakers, tabTalks, winLocalization, winSpeakers, winTalks;
+    var WinLocalization, WinSpeakers, WinTalks, self, tabLocalization, tabSpeakers, tabTalks, winLocalization, winSpeakers, winTalks;
     WinSpeakers = require("/ui/WinSpeakers");
     WinTalks = require("/ui/WinTalks");
     WinLocalization = require("/ui/WinLocalization");
-    WinTwitter = require("/ui/WinTwitter");
     self = Ti.UI.createTabGroup();
     tabTalks = Ti.UI.createTab({
       title: L("talks"),
