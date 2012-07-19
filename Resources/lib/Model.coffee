@@ -17,4 +17,10 @@ class Model
 		if Ti.App.Properties.hasProperty @speakers
 			Ti.App.Properties.getList @speakers
 
+	# getTalks
+	getTalks: ->
+
+		if Ti.App.Properties.hasProperty @talks
+			Ti.App.Properties.getList @talks
+
 module.exports = Model

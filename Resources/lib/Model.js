@@ -21,6 +21,12 @@
       }
     };
 
+    Model.prototype.getTalks = function() {
+      if (Ti.App.Properties.hasProperty(this.talks)) {
+        return Ti.App.Properties.getList(this.talks);
+      }
+    };
+
     return Model;
 
   })();
