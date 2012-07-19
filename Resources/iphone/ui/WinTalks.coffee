@@ -12,8 +12,14 @@ Window = ->
 	self = new ui.createWindow
 		title: L("talks")
 
+	# Get data and set to rows Array
+	talks = model.getTalks()
+	rows = (ui.createTalkRow talk for talk in talks)
+
 	# Create TableView
-	tableView = new ui.createTableView()
+	tableView = new ui.createTableView
+		data: rows
+	
 	self.add tableView
 
 	self
