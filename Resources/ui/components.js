@@ -59,7 +59,10 @@
   };
 
   exports.createSpeakerRow = function(dict) {
-    var company, image, name, self;
+    var company, image, imageSize, leftSpaceOfLabels, name, self, spaceFromBorder;
+    spaceFromBorder = isAndroid ? 0 : "5dp";
+    imageSize = isAndroid ? "70dp" : "60dp";
+    leftSpaceOfLabels = isAndroid ? "85dp" : "70dp";
     self = Ti.UI.createTableViewRow({
       speaker_obj: dict,
       hasChild: isAndroid ? false : true,
@@ -67,29 +70,29 @@
     });
     image = Ti.UI.createImageView({
       image: "/images/speakers/" + dict.picture,
-      left: "5dp",
-      top: "5dp",
-      bottom: "5dp",
-      height: "50dp",
-      width: "50dp"
+      left: spaceFromBorder,
+      top: spaceFromBorder,
+      bottom: spaceFromBorder,
+      height: imageSize,
+      width: imageSize
     });
     self.add(image);
     name = Ti.UI.createLabel({
       text: dict.name,
-      left: "60dp",
-      top: "10dp",
+      left: leftSpaceOfLabels,
+      top: "14dp",
       color: "#000000",
       highlightedColor: "#FFFFFF",
       font: {
         fontWeight: "bold",
-        fontSize: "16dp"
+        fontSize: "18dp"
       }
     });
     self.add(name);
     company = Ti.UI.createLabel({
       text: dict.company,
-      left: "60dp",
-      top: "30dp",
+      left: leftSpaceOfLabels,
+      top: "35dp",
       color: "#666666",
       highlightedColor: "#FFFFFF",
       font: {
