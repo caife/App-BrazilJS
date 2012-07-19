@@ -66,7 +66,8 @@
     self = Ti.UI.createTableViewRow({
       speaker_obj: dict,
       hasChild: isAndroid ? false : true,
-      height: Ti.UI.SIZE
+      height: Ti.UI.SIZE,
+      className: "speaker"
     });
     image = Ti.UI.createImageView({
       image: "/images/speakers/" + dict.picture,
@@ -104,13 +105,37 @@
   };
 
   exports.createTalkRow = function(dict) {
-    var self;
+    var leftSpaceOfLabels, self, timeLabel, titleLabel;
+    leftSpaceOfLabels = "10dp";
     self = Ti.UI.createTableViewRow({
       talk_obj: dict,
       hasChild: isAndroid ? false : true,
-      height: Ti.UI.SIZE,
-      title: dict.name
+      height: "60dp",
+      className: "talk"
     });
+    titleLabel = Ti.UI.createLabel({
+      text: dict.name,
+      left: leftSpaceOfLabels,
+      top: "10dp",
+      color: "#000000",
+      highlightedColor: "#FFFFFF",
+      font: {
+        fontSize: "18dp",
+        fontWeight: "bold"
+      }
+    });
+    self.add(titleLabel);
+    timeLabel = Ti.UI.createLabel({
+      text: "" + dict.hour + " - " + dict.date,
+      left: leftSpaceOfLabels,
+      top: "33dp",
+      color: "#999999",
+      highlightedColor: "#FFFFFF",
+      font: {
+        fontSize: "14dp"
+      }
+    });
+    self.add(timeLabel);
     return self;
   };
 
