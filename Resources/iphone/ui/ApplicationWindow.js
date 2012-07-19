@@ -2,7 +2,7 @@
   var TabGroup;
 
   TabGroup = function() {
-    var WinLocalization, WinSpeakers, WinTalks, WinTwitter, self, tabLocalization, tabSpeakers, tabTalks;
+    var WinLocalization, WinSpeakers, WinTalks, WinTwitter, self, tabLocalization, tabSpeakers, tabTalks, winLocalization, winSpeakers, winTalks;
     WinSpeakers = require("/ui/WinSpeakers");
     WinTalks = require("/ui/WinTalks");
     WinLocalization = require("/ui/WinLocalization");
@@ -10,21 +10,30 @@
     self = Ti.UI.createTabGroup();
     tabTalks = Ti.UI.createTab({
       title: L("talks"),
-      icon: "/images/icons/Allotted-Time.png",
-      window: new WinTalks()
+      icon: "/images/icons/Allotted-Time.png"
     });
-    self.addTab(tabTalks);
     tabSpeakers = Ti.UI.createTab({
       title: L("speakers"),
-      icon: "/images/icons/Users.png",
-      window: new WinSpeakers()
+      icon: "/images/icons/Users.png"
     });
-    self.addTab(tabSpeakers);
     tabLocalization = Ti.UI.createTab({
       title: L("localization"),
-      icon: "/images/icons/Navigation-Map.png",
-      window: new WinLocalization()
+      icon: "/images/icons/Navigation-Map.png"
     });
+    winTalks = new WinTalks({
+      currenTab: tabTalks
+    });
+    tabTalks.setWindow(winTalks);
+    self.addTab(tabTalks);
+    winSpeakers = new WinSpeakers({
+      currenTab: tabSpeakers
+    });
+    tabSpeakers.setWindow(winSpeakers);
+    self.addTab(tabSpeakers);
+    winLocalization = new WinLocalization({
+      currenTab: tabLocalization
+    });
+    tabLocalization.setWindow(winLocalization);
     self.addTab(tabLocalization);
     return self;
   };

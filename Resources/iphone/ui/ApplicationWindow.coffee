@@ -8,27 +8,35 @@ TabGroup = ->
 	# Create TabGroup
 	self = Ti.UI.createTabGroup()
 
-	# Create Tabs and add to TabGroup
-
-	# Talks
+	# Tabs
 	tabTalks = Ti.UI.createTab
 		title: L("talks")
 		icon: "/images/icons/Allotted-Time.png"
-		window: new WinTalks()
-	self.addTab(tabTalks)
 
-	# Speakers
 	tabSpeakers = Ti.UI.createTab
 		title: L("speakers")
 		icon: "/images/icons/Users.png"
-		window: new WinSpeakers()
-	self.addTab(tabSpeakers)
 
-	# Localization
 	tabLocalization = Ti.UI.createTab
 		title: L("localization")
 		icon: "/images/icons/Navigation-Map.png"
-		window: new WinLocalization()
+
+	# Talks
+	winTalks = new WinTalks
+		currenTab: tabTalks
+	tabTalks.setWindow winTalks
+	self.addTab(tabTalks)
+
+	# Speakers
+	winSpeakers = new WinSpeakers
+		currenTab: tabSpeakers
+	tabSpeakers.setWindow winSpeakers
+	self.addTab(tabSpeakers)
+
+	# Localization
+	winLocalization = new WinLocalization
+		currenTab: tabLocalization
+	tabLocalization.setWindow winLocalization
 	self.addTab(tabLocalization)
 
 	self
