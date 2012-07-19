@@ -2,6 +2,7 @@
 <resources>
 	<string name="talks">Palestras</string>
 	<string name="speakers">Palestrantes</string>
+	<string name="speaker">Palestrante</string>
 	<string name="localization">Localização</string>
 	<string name="about">Sobre</string>
 	<string name="twitter">Twitter</string>
