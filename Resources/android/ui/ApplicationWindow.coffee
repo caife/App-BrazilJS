@@ -1,10 +1,14 @@
 Window = ->
 
+	Model = require "/lib/Model"
 	ActionBarView = require "/ui/ActionBarView"
 	TabStripView = require "/ui/TabStripView"
 	ViewSpeakers = require "/ui/ViewSpeakers"
 	ViewTalks = require "/ui/ViewTalks"
 	ViewLocalization = require "/ui/ViewLocalization"
+
+	model = new Model()
+	config = model.getConfig()
 
 	self = Ti.UI.createWindow
 		backgroundColor: "#FFF"
@@ -14,7 +18,10 @@ Window = ->
 
 	# Create ActionBar
 	actionBar = new ActionBarView
-		title: "BrazilJS"
+		title: config.appname
+		titleColor: config.theme.android.actionBar.titleColor
+		backgroundColor: config.theme.android.actionBar.backgroundColor
+		selectedColor: config.theme.android.selectedColor
 		buttons:[{
 			icon: "/images/New-Email.png"
 			id: "share"
@@ -25,18 +32,16 @@ Window = ->
 
 	# Create TabStripView
 	tabStripView = new TabStripView
-		tabs:
-			talks:
-				title: L("talks")
-				icon: "/images/icons/Allotted-Time.png"
-
-			speakers:
-				title: L("speakers")
-				icon: "/images/icons/Users.png"
-
-			localization:
-				title: L("localization")
-				icon: "/images/icons/Navigation-Map.png"
+		selectedColor: config.theme.android.selectedColor
+		titleColor: config.theme.android.tabStripView.titleColor
+		separatorColor: config.theme.android.tabStripView.separatorColor
+		borderColor: config.theme.android.tabStripView.borderColor
+		backgroundColor: config.theme.android.tabStripView.backgroundColor
+		tabs: [
+			{ title: L("talks") }
+			{ title: L("speakers") }
+			{ title: L("localization") }
+		]
 
 	self.add tabStripView
 
