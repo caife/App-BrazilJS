@@ -183,13 +183,16 @@ Window = (speaker) ->
 				when 0
 					if canOpenTweetbot
 						Ti.Platform.openURL tweetbotURL
+						deselectRow 0
 					else if canOpenTwitter
 						Ti.Platform.openURL twitterURL
+						deselectRow 0
 					else
 						openTwitterInMiniBrowser()
 				when 1
 					if canOpenTweetbot and canOpenTwitter
 						Ti.Platform.openURL twitterURL
+						deselectRow 0
 					else
 						if canOpenTweetbot or canOpenTwitter
 							openTwitterInMiniBrowser()

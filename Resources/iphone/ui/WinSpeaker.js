@@ -186,16 +186,19 @@
         switch (e.index) {
           case 0:
             if (canOpenTweetbot) {
-              return Ti.Platform.openURL(tweetbotURL);
+              Ti.Platform.openURL(tweetbotURL);
+              return deselectRow(0);
             } else if (canOpenTwitter) {
-              return Ti.Platform.openURL(twitterURL);
+              Ti.Platform.openURL(twitterURL);
+              return deselectRow(0);
             } else {
               return openTwitterInMiniBrowser();
             }
             break;
           case 1:
             if (canOpenTweetbot && canOpenTwitter) {
-              return Ti.Platform.openURL(twitterURL);
+              Ti.Platform.openURL(twitterURL);
+              return deselectRow(0);
             } else {
               if (canOpenTweetbot || canOpenTwitter) {
                 return openTwitterInMiniBrowser();
