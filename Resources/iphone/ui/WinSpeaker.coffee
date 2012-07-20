@@ -48,6 +48,20 @@ Window = (speaker) ->
 
 	# Rows
 
+	# WebSite
+	rowWebsite = Ti.UI.createTableViewRow
+		height: 44
+	
+	rowWebsite.add Ti.UI.createLabel
+		text: L("website")
+		left: 10
+		font: { fontSize: 16, fontWeight: "bold" }
+
+	rowWebsite.add Ti.UI.createLabel
+		text: speaker.website
+		right: 10
+		font: { fontSize: 16 }
+
 	# Twitter
 	rowTwitter = Ti.UI.createTableViewRow
 		height: 44
@@ -79,9 +93,82 @@ Window = (speaker) ->
 	tableView = new ui.createTableView
 		headerView: headerView
 		style: Ti.UI.iPhone.TableViewStyle.GROUPED
-		data: [rowTwitter, rowDescription]
+		data: [rowWebsite, rowTwitter, rowDescription]
 
 	self.add tableView
+
+	tableView.addEventListener "click", (e) ->
+
+		switch e.index
+			when 0 then openWebsite()
+			when 1 then openTwitter()
+
+	openWebsite = ->
+		
+		MiniBrowser = require "/lib/MiniBrowser"
+		miniBrowser = new MiniBrowser
+			modal: true
+			url: "http://www.#{speaker.website}/"
+
+		miniBrowser.open()
+
+	openTwitterInMiniBrowser = ->
+
+		MiniBrowser = require "/lib/MiniBrowser"
+		miniBrowser = new MiniBrowser
+		 	modal: true
+		 	url: "http://www.twitter.com/#{speaker.twitter_handle}"
+
+		miniBrowser.open()
+
+	openTwitter = ->
+
+		canOpenTwitter = false
+		canOpenTweetbot = false
+		options = []
+
+		# Create URL Schema
+		twitterURL = "twitter://user?screen_name=#{speaker.twitter_handle}"
+		tweetbotURL = "tweetbot:///user_profile/#{speaker.twitter_handle}"
+
+		if Ti.Platform.canOpenURL tweetbotURL
+			canOpenTweetbot = true
+			options.push L("open_tweetbot")
+
+		if Ti.Platform.canOpenURL twitterURL
+			canOpenTwitter = true
+			options.push L("open_twitter")
+
+		options.push L("open_in_browser")
+		options.push L("cancel")
+
+		twitterOptionsDialog = Ti.UI.createOptionDialog
+			title: L("how_want_you_open")
+			options: options
+			destructive: options.length - 1
+
+		twitterOptionsDialog.show()
+
+		twitterOptionsDialog.addEventListener "click", (e) ->
+
+			switch e.index
+
+				when 0
+					if canOpenTweetbot
+						Ti.Platform.openURL tweetbotURL
+					else if canOpenTwitter
+						Ti.Platform.openURL twitterURL
+					else
+						openTwitterInMiniBrowser()
+				when 1
+					if canOpenTweetbot and canOpenTwitter
+						Ti.Platform.openURL twitterURL
+					else
+						if canOpenTweetbot
+							openTwitterInMiniBrowser()
+				when 2
+					if canOpenTweetbot and canOpenTwitter
+						openTwitterInMiniBrowser()
 
 	self
 

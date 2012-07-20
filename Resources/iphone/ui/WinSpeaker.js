@@ -2,7 +2,7 @@
   var Window;
 
   Window = function(speaker) {
-    var headerView, imageProfile, labelCompany, labelName, rowDescription, rowTwitter, self, tableView, ui;
+    var headerView, imageProfile, labelCompany, labelName, openTwitter, openTwitterInMiniBrowser, openWebsite, rowDescription, rowTwitter, rowWebsite, self, tableView, ui;
     ui = require("/ui/components");
     self = new ui.createWindow({
       title: L("speaker")
@@ -53,6 +53,24 @@
       }
     });
     headerView.add(labelCompany);
+    rowWebsite = Ti.UI.createTableViewRow({
+      height: 44
+    });
+    rowWebsite.add(Ti.UI.createLabel({
+      text: L("website"),
+      left: 10,
+      font: {
+        fontSize: 16,
+        fontWeight: "bold"
+      }
+    }));
+    rowWebsite.add(Ti.UI.createLabel({
+      text: speaker.website,
+      right: 10,
+      font: {
+        fontSize: 16
+      }
+    }));
     rowTwitter = Ti.UI.createTableViewRow({
       height: 44
     });
@@ -88,9 +106,83 @@
     tableView = new ui.createTableView({
       headerView: headerView,
       style: Ti.UI.iPhone.TableViewStyle.GROUPED,
-      data: [rowTwitter, rowDescription]
+      data: [rowWebsite, rowTwitter, rowDescription]
     });
     self.add(tableView);
+    tableView.addEventListener("click", function(e) {
+      switch (e.index) {
+        case 0:
+          return openWebsite();
+        case 1:
+          return openTwitter();
+      }
+    });
+    openWebsite = function() {
+      var MiniBrowser, miniBrowser;
+      MiniBrowser = require("/lib/MiniBrowser");
+      miniBrowser = new MiniBrowser({
+        modal: true,
+        url: "http://www." + speaker.website + "/"
+      });
+      return miniBrowser.open();
+    };
+    openTwitterInMiniBrowser = function() {
+      var MiniBrowser, miniBrowser;
+      MiniBrowser = require("/lib/MiniBrowser");
+      miniBrowser = new MiniBrowser({
+        modal: true,
+        url: "http://www.twitter.com/" + speaker.twitter_handle
+      });
+      return miniBrowser.open();
+    };
+    openTwitter = function() {
+      var canOpenTweetbot, canOpenTwitter, options, tweetbotURL, twitterOptionsDialog, twitterURL;
+      canOpenTwitter = false;
+      canOpenTweetbot = false;
+      options = [];
+      twitterURL = "twitter://user?screen_name=" + speaker.twitter_handle;
+      tweetbotURL = "tweetbot:///user_profile/" + speaker.twitter_handle;
+      if (Ti.Platform.canOpenURL(tweetbotURL)) {
+        canOpenTweetbot = true;
+        options.push(L("open_tweetbot"));
+      }
+      if (Ti.Platform.canOpenURL(twitterURL)) {
+        canOpenTwitter = true;
+        options.push(L("open_twitter"));
+      }
+      options.push(L("open_in_browser"));
+      options.push(L("cancel"));
+      twitterOptionsDialog = Ti.UI.createOptionDialog({
+        title: L("how_want_you_open"),
+        options: options,
+        destructive: options.length - 1
+      });
+      twitterOptionsDialog.show();
+      return twitterOptionsDialog.addEventListener("click", function(e) {
+        switch (e.index) {
+          case 0:
+            if (canOpenTweetbot) {
+              return Ti.Platform.openURL(tweetbotURL);
+            } else if (canOpenTwitter) {
+              return Ti.Platform.openURL(twitterURL);
+            } else {
+              return openTwitterInMiniBrowser();
+            }
+            break;
+          case 1:
+            if (canOpenTweetbot && canOpenTwitter) {
+              return Ti.Platform.openURL(twitterURL);
+            } else {
+              if (canOpenTweetbot) return openTwitterInMiniBrowser();
+            }
+            break;
+          case 2:
+            if (canOpenTweetbot && canOpenTwitter) {
+              return openTwitterInMiniBrowser();
+            }
+        }
+      });
+    };
     return self;
   };
 
