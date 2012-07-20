@@ -10,4 +10,8 @@
 	<string name="call">Call</string>
 	<string name="route">Make route</string>
 	<string name="cancel">Cancel</string>
+	<string name="close">Close</string>
+	<string name="copy_link">Copy link</string>
+	<string name="open_browser">Open in Safari</string>
+	<string name="send_by_email">Send by email</string>
 </resources>

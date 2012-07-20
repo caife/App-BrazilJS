@@ -10,4 +10,8 @@
 	<string name="call">Ligar</string>
 	<string name="route">Traçar rota</string>
 	<string name="cancel">Cancelar</string>
+	<string name="close">Fechar</string>
+	<string name="copy_link">Copiar link</string>
+	<string name="open_browser">Abrir no Safari</string>
+	<string name="send_by_email">Enviar por e-mail</string>
 </resources>
