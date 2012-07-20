@@ -131,10 +131,12 @@ Window = (speaker) ->
 		twitterURL = "twitter://user?screen_name=#{speaker.twitter_handle}"
 		tweetbotURL = "tweetbot:///user_profile/#{speaker.twitter_handle}"
 
+		# Verify if user have Tweetbot
 		if Ti.Platform.canOpenURL tweetbotURL
 			canOpenTweetbot = true
 			options.push L("open_tweetbot")
 
+		# Verify if user have Twitter
 		if Ti.Platform.canOpenURL twitterURL
 			canOpenTwitter = true
 			options.push L("open_twitter")
@@ -142,13 +144,16 @@ Window = (speaker) ->
 		options.push L("open_in_browser")
 		options.push L("cancel")
 
+		# Create OptionDialog
 		twitterOptionsDialog = Ti.UI.createOptionDialog
 			title: L("how_want_you_open")
 			options: options
 			destructive: options.length - 1
 
+		# Show it
 		twitterOptionsDialog.show()
 
+		# Event handler
 		twitterOptionsDialog.addEventListener "click", (e) ->
 
 			switch e.index
