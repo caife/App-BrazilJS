@@ -14,4 +14,9 @@
 	<string name="copy_link">Copiar link</string>
 	<string name="open_browser">Abrir no Safari</string>
 	<string name="send_by_email">Enviar por e-mail</string>
+	<string name="how_want_you_open">Você quer abrir com qual aplicativo?</string>
+	<string name="open_twitter">Abrir com o Twitter</string>
+	<string name="open_tweetbot">Abrir com o Tweetbot</string>
+	<string name="open_in_browser">Abrir com o Browser</string>
+	<string name="website">Site</string>
 </resources>
