@@ -60,6 +60,7 @@
     rowWebsite.add(Ti.UI.createLabel({
       text: L("website"),
       left: 10,
+      highlightedColor: "#FFFFFF",
       font: {
         fontSize: 16,
         fontWeight: "bold"
@@ -68,6 +69,7 @@
     rowWebsite.add(Ti.UI.createLabel({
       text: speaker.website,
       right: 10,
+      highlightedColor: "#FFFFFF",
       font: {
         fontSize: 16
       }
@@ -78,6 +80,7 @@
     rowTwitter.add(Ti.UI.createLabel({
       text: L("twitter"),
       left: 10,
+      highlightedColor: "#FFFFFF",
       font: {
         fontSize: 16,
         fontWeight: "bold"
@@ -86,6 +89,7 @@
     rowTwitter.add(Ti.UI.createLabel({
       text: "@" + speaker.twitter_handle,
       right: 10,
+      highlightedColor: "#FFFFFF",
       font: {
         fontSize: 16
       }
