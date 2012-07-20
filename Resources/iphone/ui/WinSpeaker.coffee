@@ -3,6 +3,9 @@ Window = (speaker) ->
 	# Requirements
 	ui = require "/ui/components"
 
+	# Just initialize some variables
+	rowSelectedIndex = null
+
 	# Create the Window
 	self = new ui.createWindow
 		title: L("speaker")
@@ -99,9 +102,24 @@ Window = (speaker) ->
 
 	tableView.addEventListener "click", (e) ->
 
+		# Select row
+		if e.index == 0 or e.index == 1
+			rowSelectedIndex = e.index
+			tableView.selectRow(e.index, { animated : false })
+
 		switch e.index
 			when 0 then openWebsite()
 			when 1 then openTwitter()
+
+	deselectRow = (timeout = 100) ->
+		setTimeout(->
+			if rowSelectedIndex != null
+				tableView.deselectRow(rowSelectedIndex, { duration: 150 })
+		, timeout)
+
+	# Deselect row when focus in Window
+	self.addEventListener "focus", ->
+		deselectRow(100)
 
 	openWebsite = ->
 		
@@ -169,11 +187,16 @@ Window = (speaker) ->
 					if canOpenTweetbot and canOpenTwitter
 						Ti.Platform.openURL twitterURL
 					else
-						if canOpenTweetbot
+						if canOpenTweetbot or canOpenTwitter
 							openTwitterInMiniBrowser()
+						else
+							deselectRow 0
+
 				when 2
 					if canOpenTweetbot and canOpenTwitter
 						openTwitterInMiniBrowser()
+					else
+						deselectRow 0
 
 	self
 

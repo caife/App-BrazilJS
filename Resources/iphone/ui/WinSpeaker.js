@@ -2,8 +2,9 @@
   var Window;
 
   Window = function(speaker) {
-    var headerView, imageProfile, labelCompany, labelName, openTwitter, openTwitterInMiniBrowser, openWebsite, rowDescription, rowTwitter, rowWebsite, self, tableView, ui;
+    var deselectRow, headerView, imageProfile, labelCompany, labelName, openTwitter, openTwitterInMiniBrowser, openWebsite, rowDescription, rowSelectedIndex, rowTwitter, rowWebsite, self, tableView, ui;
     ui = require("/ui/components");
+    rowSelectedIndex = null;
     self = new ui.createWindow({
       title: L("speaker")
     });
@@ -110,12 +111,31 @@
     });
     self.add(tableView);
     tableView.addEventListener("click", function(e) {
+      if (e.index === 0 || e.index === 1) {
+        rowSelectedIndex = e.index;
+        tableView.selectRow(e.index, {
+          animated: false
+        });
+      }
       switch (e.index) {
         case 0:
           return openWebsite();
         case 1:
           return openTwitter();
       }
+    });
+    deselectRow = function(timeout) {
+      if (timeout == null) timeout = 100;
+      return setTimeout(function() {
+        if (rowSelectedIndex !== null) {
+          return tableView.deselectRow(rowSelectedIndex, {
+            duration: 150
+          });
+        }
+      }, timeout);
+    };
+    self.addEventListener("focus", function() {
+      return deselectRow(100);
     });
     openWebsite = function() {
       var MiniBrowser, miniBrowser;
@@ -173,12 +193,18 @@
             if (canOpenTweetbot && canOpenTwitter) {
               return Ti.Platform.openURL(twitterURL);
             } else {
-              if (canOpenTweetbot) return openTwitterInMiniBrowser();
+              if (canOpenTweetbot || canOpenTwitter) {
+                return openTwitterInMiniBrowser();
+              } else {
+                return deselectRow(0);
+              }
             }
             break;
           case 2:
             if (canOpenTweetbot && canOpenTwitter) {
               return openTwitterInMiniBrowser();
+            } else {
+              return deselectRow(0);
             }
         }
       });
