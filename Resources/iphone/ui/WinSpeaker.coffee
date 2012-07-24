@@ -205,6 +205,9 @@ Window = (speaker) ->
 					else
 						deselectRow 0
 
+				when 3
+					deselectRow 0
+
 	self
 
 module.exports = Window

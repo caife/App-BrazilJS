@@ -213,6 +213,9 @@
             } else {
               return deselectRow(0);
             }
+            break;
+          case 3:
+            return deselectRow(0);
         }
       });
     };
