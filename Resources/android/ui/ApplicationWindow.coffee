@@ -12,7 +12,6 @@ Window = ->
 
 	self = Ti.UI.createWindow
 		backgroundColor: "#FFF"
-		title: "Home"
 		navBarHidden: true
 		orientationModes: [Titanium.UI.PORTRAIT]
 

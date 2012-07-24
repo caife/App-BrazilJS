@@ -13,7 +13,6 @@
     config = model.getConfig();
     self = Ti.UI.createWindow({
       backgroundColor: "#FFF",
-      title: "Home",
       navBarHidden: true,
       orientationModes: [Titanium.UI.PORTRAIT]
     });
