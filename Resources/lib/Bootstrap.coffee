@@ -13,7 +13,7 @@ exports.setInitialConfigutarion = ->
 			# Get physical file
 			property_name = file.name.toLowerCase()
 			file_name = "#{file.name}.#{extension}"
-			physical_file = Ti.Filesystem.getFile(Titanium.Filesystem.resourcesDirectory, file_name);
+			physical_file = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory + Ti.Filesystem.separator + "data", file_name);
 
 			# If file exists
 			if (physical_file.exists())

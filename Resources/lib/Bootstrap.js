@@ -22,7 +22,7 @@
         var file_content, file_name, physical_file, property_name;
         property_name = file.name.toLowerCase();
         file_name = "" + file.name + "." + extension;
-        physical_file = Ti.Filesystem.getFile(Titanium.Filesystem.resourcesDirectory, file_name);
+        physical_file = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory + Ti.Filesystem.separator + "data", file_name);
         if (physical_file.exists()) {
           file_content = JSON.parse(physical_file.read().text);
           if (file.type === "Object") {
