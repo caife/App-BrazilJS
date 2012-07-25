@@ -3,3 +3,12 @@
 /build.log
 build
 tmp
+/Resources/android/appicon.png
+/Resources/android/default.png
+/Resources/data/*
+/Resources/images/*
+/Resources/iphone/Default.png
+/Resources/iphone/Default@2x.png
+/Resources/iphone/appicon.png
+/Resources/iphone/appicon@2x.png
+/tiapp.xml
