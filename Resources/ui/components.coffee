@@ -4,7 +4,7 @@ config = model.getConfig()
 
 # Defaults
 isAndroid = if (Ti.Platform.osname == "android") then true else false
-gradientColor = config.theme.barColor
+gradientColor = config.theme.ios.barColor
 
 
 # Window
