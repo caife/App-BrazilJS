@@ -9,11 +9,11 @@ if [ ! -z "${bundle}" ]; then
 
 		# Clean all build folder
 		rm -Rf ./build/
-
-		# Clean images
-		rm -Rf ./Resources/images/*
-
 		printf "Build folder deleted.\n"
+
+		# Clean project
+		sh clean_project.sh
+		printf "Project cleaned.\n"
 
 		# Move all icons and splashs to root directory
 		# iOS
@@ -33,11 +33,11 @@ if [ ! -z "${bundle}" ]; then
 		printf "Bundle (${bundle}) resources copied.\n"
 
 		# Copy Images folder
-		cp -r ./Bundles/"${bundle}"/images/* ./Resources/images/
+		cp -R ./Bundles/"${bundle}"/images/ ./Resources/images/
 		printf "Images copied.\n"
 
 		# Copy Data folder
-		cp -r ./Bundles/"${bundle}"/data/* ./Resources/data/
+		cp -R ./Bundles/"${bundle}"/data/ ./Resources/data/
 		printf "Data copied.\n"
 
 	else
