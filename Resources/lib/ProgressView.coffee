@@ -13,8 +13,6 @@ class ProgressView
 
 		@dict = applyConfig defaults, dict
 
-		Ti.API.info @dict
-
 		return @createProgressView()
 
 	createProgressView: ->
