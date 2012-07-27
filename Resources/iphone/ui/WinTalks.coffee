@@ -3,6 +3,7 @@ Window = ->
 	# Requirements
 	Model = require "/lib/Model"
 	ui = require "/ui/components"
+	ProgressView = require "/lib/ProgressView"
 
 	# Instance Model object
 	model = new Model()
@@ -21,6 +22,11 @@ Window = ->
 		data: rows
 	
 	self.add tableView
+
+	progressView = new ProgressView
+		bottomSpace: 44
+
+	self.add progressView
 
 	self
 
