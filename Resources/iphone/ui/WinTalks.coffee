@@ -15,6 +15,22 @@ Window = ->
 	self.add tableView
 
 	# Start to get values from WS
+	xhr = Ti.Network.createHTTPClient
+		onload: ->
+			# Get values returned from WS and make JSON parse
+			talks = JSON.parse @responseText
+
+			# Create rows and put it to rows Array
+			rows = (createTalkRow talk for talk in talks)
+
+			# Set data in TableView
+			tableView.setData rows
+
+			# Hide ProgressView
+			progressView.hide()
+
+	xhr.open "GET", 
+	xhr.send()
 
 	# Show ProgressView
 	progressView = new ProgressView
