@@ -25,21 +25,48 @@ Window = ->
 			progressView.hide()
 
 		onload: ->
-			Ti.API.info @responseText
-
 			# Get values returned from WS and make JSON parse
 			talks = JSON.parse @responseText
+			beforeTalkDay = 0
+			actualSection = null
+			sections = {}
 
-			# Create rows and put it to rows Array
-			rows = (createTalkRow talk for talk in talks)
+			for talk in talks
+				do (talk) ->
+
+					# Separate data to get day
+					talkDate = new Date(talk.dateTime)
+					talkDay = talkDate.getDate()
+					talkMonth = talkDate.getMonth() + 1
+					talkYear = talkDate.getFullYear()
+
+					# Create TableViewRow
+					row = ui.createTalkRow talk
+
+					# If is a different day, create a new Section
+					if talkDay != beforeTalkDay
+						beforeTalkDay = talkDay
+						actualSection = "#{talkDay}/#{talkYear}"
+
+						if typeof sections[actualSection] == "undefined"
+							sections[actualSection] = Ti.UI.createTableViewSection
+								headerTitle: "#{talkDay}/#{talkMonth}/#{talkYear}"
+
+					sections[actualSection].add row
+
+			# Create a Sections list
+			sectionsList = []
+			for section of sections
+				do (section) ->
+					sectionsList.push sections[section]
 
 			# Set data in TableView
-			tableView.setData rows
+			tableView.setData sectionsList
 
 			# Hide ProgressView
 			progressView.hide()
 
-	xhr.open "GET", "http://braziljs-ws.heroku.com/talks"
+	xhr.open "GET", "http://braziljs-ws.herokuapp.com/talks"
 	xhr.send()
 
 	# Show ProgressView
