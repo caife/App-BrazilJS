@@ -16,7 +16,17 @@ Window = ->
 
 	# Start to get values from WS
 	xhr = Ti.Network.createHTTPClient
+		onerror: ->
+			Ti.UI.createAlertDialog
+				title: L("connection")
+				message: L("connection_failed")
+			.show()
+
+			progressView.hide()
+
 		onload: ->
+			Ti.API.info @responseText
+
 			# Get values returned from WS and make JSON parse
 			talks = JSON.parse @responseText
 
@@ -29,7 +39,7 @@ Window = ->
 			# Hide ProgressView
 			progressView.hide()
 
-	xhr.open "GET", 
+	xhr.open "GET", "http://braziljs-ws.heroku.com/talks"
 	xhr.send()
 
 	# Show ProgressView
