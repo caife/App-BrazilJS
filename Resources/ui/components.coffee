@@ -134,9 +134,9 @@ exports.createTalkRow = (dict) ->
 		font: { fontSize: "18dp", fontWeight: "bold" }
 	self.add titleLabel
 
-	# Time
+	# Time and Speaker
 	timeAndSpeakerLabel = Ti.UI.createLabel
-		text: "#{talkHour}h#{talkMinute} - #{dict.speaker}"
+		text: "#{talkHour}:#{talkMinute} - #{dict.speaker}"
 		left: leftSpaceOfLabels
 		top: "33dp"
 		color: "#999999"
