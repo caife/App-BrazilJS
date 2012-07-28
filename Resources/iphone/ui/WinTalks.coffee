@@ -5,6 +5,20 @@ Window = ->
 	ProgressView = require "/lib/ProgressView"
 
 	rows = []
+	months = [
+		L("january")
+		L("february")
+		L("march")
+		L("april")
+		L("may")
+		L("june")
+		L("july")
+		L("august")
+		L("september")
+		L("october")
+		L("november")
+		L("december")
+	]
 
 	# Create the Window
 	self = new ui.createWindow
@@ -38,7 +52,6 @@ Window = ->
 					talkDate = new Date(talk.dateTime)
 					talkDay = talkDate.getDate()
 					talkMonth = talkDate.getMonth() + 1
-					talkYear = talkDate.getFullYear()
 
 					# Create TableViewRow
 					row = ui.createTalkRow talk
@@ -46,11 +59,11 @@ Window = ->
 					# If is a different day, create a new Section
 					if talkDay != beforeTalkDay
 						beforeTalkDay = talkDay
-						actualSection = "#{talkDay}/#{talkYear}"
+						actualSection = "#{talkDay}#{talkMonth}"
 
 						if typeof sections[actualSection] == "undefined"
 							sections[actualSection] = Ti.UI.createTableViewSection
-								headerTitle: "#{talkDay}/#{talkMonth}/#{talkYear}"
+								headerTitle: "#{talkDay} #{L('of')} #{months[talkMonth]}"
 
 					sections[actualSection].add row
 
