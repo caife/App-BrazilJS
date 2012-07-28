@@ -109,6 +109,14 @@ exports.createTalkRow = (dict) ->
 
 	leftSpaceOfLabels = "10dp"
 
+	# Separate data to get day
+	talkDate = new Date(dict.dateTime)
+	talkHour = talkDate.getHours()
+	talkMinute = talkDate.getMinutes()
+
+	talkHour = "0#{talkHour}" if talkHour < 10
+	talkMinute = "0#{talkMinute}" if talkMinute < 10
+
 	# TableViewRow
 	self = Ti.UI.createTableViewRow
 		talk_obj: dict
@@ -127,14 +135,14 @@ exports.createTalkRow = (dict) ->
 	self.add titleLabel
 
 	# Time
-	timeLabel = Ti.UI.createLabel
-		text: "#{dict.hour} - #{dict.date}"
+	timeAndSpeakerLabel = Ti.UI.createLabel
+		text: "#{talkHour}h#{talkMinute} - #{dict.speaker}"
 		left: leftSpaceOfLabels
 		top: "33dp"
 		color: "#999999"
 		highlightedColor: "#FFFFFF"
 		font: { fontSize: "14dp" }
-	self.add timeLabel
+	self.add timeAndSpeakerLabel
 
 	self
 
