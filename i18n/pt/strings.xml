@@ -19,6 +19,6 @@
 	<string name="open_tweetbot">Abrir com o Tweetbot</string>
 	<string name="open_in_browser">Abrir com o Browser</string>
 	<string name="website">Site</string>
-	<string name="conncetion">Conexão</string>
-	<string name="not_connected_message">Você não está conectado.</string>
+	<string name="connection">Conexão</string>
+	<string name="connection_failed">Você está com problemas em sua conexão. Por favor, tente novamente mais tarde.</string>
 </resources>
