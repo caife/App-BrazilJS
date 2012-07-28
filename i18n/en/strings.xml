@@ -19,4 +19,6 @@
 	<string name="open_tweetbot">Open in Tweetbot</string>
 	<string name="open_in_browser">Open in Browser</string>
 	<string name="website">Website</string>
+	<string name="conncetion">Connection</string>
+	<string name="not_connected_message">You are not connected.</string>
 </resources>
