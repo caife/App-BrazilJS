@@ -15,6 +15,10 @@ exports.createWindow = (dict) ->
 
 	window = Ti.UI.createWindow applyConfig dict, defaults
 
+	# Set barImage if configured
+	if typeof config.theme.ios.barImage != "undefined"
+		window.setBarImage "/images/ui/Navigation.png"
+
 	window
 
 
@@ -66,18 +70,19 @@ exports.createTableView = (dict) ->
 # TableViewRows
 exports.createSpeakerRow = (dict) ->
 
-	spaceFromBorder = if isAndroid then 0 else "5dp"
-	imageSize = if isAndroid then "70dp" else "60dp"
+	spaceFromBorder = if isAndroid then 0 else "7dp"
+	imageSize = if isAndroid then "70dp" else "45dp"
 	leftSpaceOfLabels = if isAndroid then "85dp" else "70dp"
 
 	self = Ti.UI.createTableViewRow
 		speaker_obj: dict
 		hasChild: if isAndroid then false else true
 		height: Ti.UI.SIZE
+		selectedBackgroundColor: config.theme.ios.selectedBackgroundColor
 		className: "speaker"
 
 	image = Ti.UI.createImageView
-		image: "/images/speakers/#{dict.picture}"
+		image: "/images/speakers/list/#{dict.picture}"
 		left: spaceFromBorder
 		top: spaceFromBorder
 		bottom: spaceFromBorder
@@ -88,18 +93,16 @@ exports.createSpeakerRow = (dict) ->
 	name = Ti.UI.createLabel
 		text: dict.name
 		left: leftSpaceOfLabels
-		top: "14dp"
+		top: "11dp"
 		color: "#000000"
-		highlightedColor: "#FFFFFF"
 		font: { fontWeight: "bold", fontSize: "18dp" }
 	self.add name
 
 	company = Ti.UI.createLabel
 		text: dict.company
 		left: leftSpaceOfLabels
-		top: "35dp"
+		top: "31dp"
 		color: "#666666"
-		highlightedColor: "#FFFFFF"
 		font: { fontSize: "14dp" }
 	self.add company
 
