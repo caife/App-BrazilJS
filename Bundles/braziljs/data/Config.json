@@ -18,6 +18,7 @@
 			}
 		},
 		"ios": {
+			"haveShadowInWindow": true,
 			"barImage": "/images/ui/Navigation.png",
 			"barColor": "#487272",
 			"selectedBackgroundColor": "#9FC5C5"
