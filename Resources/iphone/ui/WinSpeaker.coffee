@@ -55,34 +55,10 @@ Window = (speaker) ->
 	# Rows
 
 	# WebSite
-	rowWebsite = Ti.UI.createTableViewRow
-		height: 44
-		selectedBackgroundColor: config.theme.ios.selectedBackgroundColor
-	
-	rowWebsite.add Ti.UI.createLabel
-		text: L("website")
-		left: 10
-		font: { fontSize: 16, fontWeight: "bold" }
-
-	rowWebsite.add Ti.UI.createLabel
-		text: speaker.website
-		right: 10
-		font: { fontSize: 16 }
+	rowWebsite = ui.createRowWithTitleAndValue L("website"), speaker.website, true
 
 	# Twitter
-	rowTwitter = Ti.UI.createTableViewRow
-		height: 44
-		selectedBackgroundColor: config.theme.ios.selectedBackgroundColor
-	
-	rowTwitter.add Ti.UI.createLabel
-		text: L("twitter")
-		left: 10
-		font: { fontSize: 16, fontWeight: "bold" }
-
-	rowTwitter.add Ti.UI.createLabel
-		text: "@#{speaker.twitter_handle}"
-		right: 10
-		font: { fontSize: 16 }
+	rowTwitter = ui.createRowWithTitleAndValue L("twitter"), "@#{speaker.twitter_handle}", true
 
 	# Description
 	rowDescription = Ti.UI.createTableViewRow
