@@ -173,11 +173,31 @@ exports.createTalkRow = (dict) ->
 		text: "#{talkHour}:#{talkMinute} - #{dict.speaker}"
 		left: leftSpaceOfLabels
 		top: "33dp"
-		color: "#999999"
+		color: "#666666"
 		font: { fontSize: "14dp" }
 	self.add timeAndSpeakerLabel
 
 	self
+
+exports.createRowWithTitleAndValue = (title, value, selectable = false, hasChild = false) ->
+	
+	row = Ti.UI.createTableViewRow
+		height: 44
+		hasChild: hasChild
+		selectedBackgroundColor: if selectable then config.theme.ios.selectedBackgroundColor
+		selectionStyle: if !selectable then Ti.UI.iPhone.TableViewCellSelectionStyle.NONE
+	
+	row.add Ti.UI.createLabel
+		text: title
+		left: 10
+		font: { fontSize: 16, fontWeight: "bold" }
+
+	row.add Ti.UI.createLabel
+		text: value
+		right: 10
+		font: { fontSize: 16 }
+
+	row
 
 # CoffeeScript extends
 applyConfig = (object, config) ->
