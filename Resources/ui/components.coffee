@@ -19,6 +19,37 @@ exports.createWindow = (dict) ->
 	if typeof config.theme.ios.barImage != "undefined"
 		window.setBarImage "/images/ui/Navigation.png"
 
+	# Set shadow in the Window if configured
+	if typeof config.theme.ios.haveShadowInWindow != "undefined"
+		
+		if config.theme.ios.haveShadowInWindow == true
+
+			# Create Shadow
+			shadowTopView = Ti.UI.createView
+				zIndex: 10
+				height: 100
+				width: 350
+				backgroundColor: "#FF0000"
+				top: -100
+				shadow:
+					shadowRadius: 7
+					shadowOpacity: 0.5
+					shadowOffset: { x: 0, y: 5 }
+			window.add shadowTopView
+
+			# Create Shadow
+			shadowBottomView = Ti.UI.createView
+				zIndex: 10
+				height: 100
+				width: 350
+				backgroundColor: "#FF0000"
+				top: 370
+				shadow:
+					shadowRadius: 7
+					shadowOpacity: 0.7
+					shadowOffset: { x: 0, y: -5 }
+			window.add shadowBottomView
+
 	window
 
 
@@ -134,7 +165,6 @@ exports.createTalkRow = (dict) ->
 		left: leftSpaceOfLabels
 		top: "10dp"
 		color: "#000000"
-		highlightedColor: "#FFFFFF"
 		font: { fontSize: "18dp", fontWeight: "bold" }
 	self.add titleLabel
 
@@ -144,7 +174,6 @@ exports.createTalkRow = (dict) ->
 		left: leftSpaceOfLabels
 		top: "33dp"
 		color: "#999999"
-		highlightedColor: "#FFFFFF"
 		font: { fontSize: "14dp" }
 	self.add timeAndSpeakerLabel
 
