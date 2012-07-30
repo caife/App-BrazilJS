@@ -1,9 +1,11 @@
-exports.makeCall = (phone) ->
+exports.contact = (email, barColor) ->
 	
-	phoneSchema = "tel:#{phone}"
+	emailDialog = Ti.UI.createEmailDialog
+		barColor: barColor
+		subject: "#{L('contact')} - BrazilJS"
+		toRecipients: ["'BrazilJS' <#{email}>"]
 
-	if Ti.Platform.canOpenURL phoneSchema
-		Ti.Platform.openURL phoneSchema
+	emailDialog.open()
 
 
 exports.makeRoute = (latitude, longitude) ->

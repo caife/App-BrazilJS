@@ -7,7 +7,8 @@ Window = ->
 
 	# Instance Model object and get config informations
 	model = new Model()
-	config = model.getConfig().localization
+	config = model.getConfig()
+	localization = config.localization
 
 	# Create the Window
 	self = new ui.createWindow
@@ -15,18 +16,18 @@ Window = ->
 
 	# Create the Annotation
 	annotation = new ui.createMapAnnotation
-		latitude: config.latitude
-		longitude: config.longitude
-		title: config.name
-		subtitle: config.address
+		latitude: localization.latitude
+		longitude: localization.longitude
+		title: localization.name
+		subtitle: localization.address
 		rightButton: Ti.UI.iPhone.SystemButton.CONTACT_ADD
 
 	# Create the MapView
 	mapView = new ui.createMapView
 		annotations: [annotation]
 		region:
-			latitude: config.latitude
-			longitude: config.longitude
+			latitude: localization.latitude
+			longitude: localization.longitude
 			latitudeDelta: 0.005
 			longitudeDelta: 0.005
 
@@ -41,7 +42,7 @@ Window = ->
 				title: L("title_map_options")
 				destructive: 2
 				options: [
-					L("call")
+					L("contact")
 					L("route")
 					L("cancel")
 				]
@@ -51,8 +52,8 @@ Window = ->
 			mapOptions.addEventListener "click", (e) ->
 
 				switch e.index
-					when 0 then Localization.makeCall config.phone
-					when 1 then Localization.makeRoute config.latitude, config.longitude
+					when 0 then Localization.contact config.mail_contact, config.theme.ios.barColor
+					when 1 then Localization.makeRoute localization.latitude, localization.longitude
 
 	self
 
