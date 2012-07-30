@@ -105,7 +105,7 @@ Window = (dict) ->
 		talk_obj = e.rowData.talk_obj
 
 		WinTalk = require "/ui/WinTalk"
-		winTalk = new WinTalk(talk_obj)
+		winTalk = new WinTalk(dict, talk_obj)
 		dict.currenTab.open winTalk
 
 
