@@ -17,7 +17,7 @@ Window = (speaker) ->
 
 	# ImageProfile
 	imageProfile = Ti.UI.createImageView
-		image: "/images/speakers/#{speaker.picture}"
+		image: "/images/speakers/detail/#{speaker.picture}"
 		height: 65
 		width: 65
 		top: 10
