@@ -1,9 +1,11 @@
-Window = ->
+Window = (dict) ->
 
 	# Requirements
 	ui = require "/ui/components"
 	ProgressView = require "/lib/ProgressView"
-
+	
+	rowSelectedIndex = null
+	rowSelected = null
 	rows = []
 	months = [
 		L("january")
@@ -86,6 +88,29 @@ Window = ->
 	progressView = new ProgressView
 		bottomSpace: 44
 	self.add progressView
+
+	# Events handler
+	tableView.addEventListener "click", (e) ->
+
+		# Select row
+		rowSelectedIndex = e.index
+		rowSelected = e.row
+		tableView.selectRow(e.index, { animated : false })
+		
+		# Open Window
+		talk_obj = e.rowData.talk_obj
+
+		WinTalk = require "/ui/WinTalk"
+		winTalk = new WinTalk(talk_obj)
+		dict.currenTab.open winTalk
+
+
+	# Deselect row
+	self.addEventListener "focus", ->
+		setTimeout(->
+			if rowSelectedIndex != null
+				tableView.deselectRow(rowSelectedIndex, { duration: 150 })
+		, 100)
 
 	self
 
