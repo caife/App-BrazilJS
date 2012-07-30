@@ -1,7 +1,7 @@
 # BrazilJS Mobile Application
 This application was developed by [Nyvra Software](http://www.nyvra.net) to [BrazilJS Foundation](http://www.braziljs.org) (Brazilian JavaScript Foundation) using [Titanium Appcelerator](http://www.appcelerator.com), [CoffeeScript](http://coffeescript.org) and shell-script.
 
-The application supports Portugues and English.
+The application supports Portuguese and English.
 
 All the code is open sourced. So, you can use this code to learn and create your tests.
 
@@ -28,5 +28,5 @@ $ sh run.sh bundle=braziljs
 ### Talk
 ![Talk](http://i48.tinypic.com/212g4za.png)
 
-### Localization
-![Localization](http://i50.tinypic.com/r24609.png)
+### Location
+![Location](http://i50.tinypic.com/r24609.png)
