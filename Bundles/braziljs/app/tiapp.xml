@@ -58,4 +58,7 @@
         </splash>
         <theme>default</theme>
     </mobileweb>
+    <modules>
+        <module version="0.4" platform="iphone">ti.viewshadow</module> 
+    </modules>
 </ti:app>
