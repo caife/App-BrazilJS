@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
 	<string name="talks">Talks</string>
+	<string name="talk">Talk</string>
 	<string name="speakers">Speakers</string>
 	<string name="speaker">Speaker</string>
 	<string name="localization">Localization</string>
