@@ -124,6 +124,7 @@ exports.createTalkRow = (dict) ->
 	self = Ti.UI.createTableViewRow
 		talk_obj: dict
 		hasChild: if isAndroid then false else true
+		selectedBackgroundColor: config.theme.ios.selectedBackgroundColor
 		height: "60dp"
 		className: "talk"
 
