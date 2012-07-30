@@ -2,8 +2,11 @@ Window = (speaker) ->
 
 	# Requirements
 	ui = require "/ui/components"
+	Model = require "/lib/Model"
 
 	# Just initialize some variables
+	model = new Model()
+	config = model.getConfig()
 	rowSelectedIndex = null
 
 	# Create the Window
@@ -54,33 +57,31 @@ Window = (speaker) ->
 	# WebSite
 	rowWebsite = Ti.UI.createTableViewRow
 		height: 44
+		selectedBackgroundColor: config.theme.ios.selectedBackgroundColor
 	
 	rowWebsite.add Ti.UI.createLabel
 		text: L("website")
 		left: 10
-		highlightedColor: "#FFFFFF"
 		font: { fontSize: 16, fontWeight: "bold" }
 
 	rowWebsite.add Ti.UI.createLabel
 		text: speaker.website
 		right: 10
-		highlightedColor: "#FFFFFF"
 		font: { fontSize: 16 }
 
 	# Twitter
 	rowTwitter = Ti.UI.createTableViewRow
 		height: 44
+		selectedBackgroundColor: config.theme.ios.selectedBackgroundColor
 	
 	rowTwitter.add Ti.UI.createLabel
 		text: L("twitter")
 		left: 10
-		highlightedColor: "#FFFFFF"
 		font: { fontSize: 16, fontWeight: "bold" }
 
 	rowTwitter.add Ti.UI.createLabel
 		text: "@#{speaker.twitter_handle}"
 		right: 10
-		highlightedColor: "#FFFFFF"
 		font: { fontSize: 16 }
 
 	# Description
@@ -129,6 +130,7 @@ Window = (speaker) ->
 		
 		MiniBrowser = require "/lib/MiniBrowser"
 		miniBrowser = new MiniBrowser
+			barColor: config.theme.ios.barColor
 			modal: true
 			url: "http://www.#{speaker.website}/"
 
@@ -138,8 +140,9 @@ Window = (speaker) ->
 
 		MiniBrowser = require "/lib/MiniBrowser"
 		miniBrowser = new MiniBrowser
-		 	modal: true
-		 	url: "http://www.twitter.com/#{speaker.twitter_handle}"
+			barColor: config.theme.ios.barColor
+			modal: true
+			url: "http://www.twitter.com/#{speaker.twitter_handle}"
 
 		miniBrowser.open()
 

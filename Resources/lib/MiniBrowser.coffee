@@ -3,8 +3,7 @@ class MiniBrowser
 	constructor: (dict) ->
 
 		# Prepare parameters
-		defaults =
-			windowTitle: false
+		defaults = {}
 
 		self = @
 		@actionsDialog = null
@@ -142,7 +141,7 @@ class MiniBrowser
 
 		# Create ToolbarView
 		toolbarButtons = Ti.UI.iOS.createToolbar
-			barColor: @dict.barColor,
+			barColor: @dict.barColor
 			bottom: 0,
 			height: 44
 			items: [
