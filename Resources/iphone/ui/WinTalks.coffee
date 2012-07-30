@@ -3,7 +3,11 @@ Window = (dict) ->
 	# Requirements
 	ui = require "/ui/components"
 	ProgressView = require "/lib/ProgressView"
-	
+	Model = require "/lib/Model"
+
+	model = new Model()
+	config = model.getConfig()
+		
 	rowSelectedIndex = null
 	rowSelected = null
 	rows = []
@@ -81,7 +85,7 @@ Window = (dict) ->
 			# Hide ProgressView
 			progressView.hide()
 
-	xhr.open "GET", "http://braziljs-ws.herokuapp.com/talks"
+	xhr.open "GET", config.ws.talks
 	xhr.send()
 
 	# Show ProgressView
