@@ -34,4 +34,14 @@ class Model
 			speakers = Ti.App.Properties.getList @speakers
 			speakers[id]
 
+	# getSpeaker
+	getSpeakerWithName: (name) ->
+
+		if Ti.App.Properties.hasProperty @speakers
+			speakers = Ti.App.Properties.getList @speakers
+
+			for speaker in speakers
+				if speaker.name == name
+					return speaker
+
 module.exports = Model
