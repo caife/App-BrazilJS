@@ -35,4 +35,6 @@
 	<string name="november">Novembro</string>
 	<string name="december">Dezembro</string>
 	<string name="of">de</string>
+	<string name="date">Data</string>
+	<string name="time">Horário</string>
 </resources>
