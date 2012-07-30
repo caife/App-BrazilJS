@@ -2,7 +2,7 @@
 	"appname": "BrazilJS",
 	"website": "http://www.braziljs.com.br",
 	"twitter_handle": "braziljs",
-	"mail_contact": "",
+	"mail_contact": "contato@braziljs.com.br",
 	"theme": {
 		"android": {
 			"selectedColor": "#4DA9CA",
@@ -18,7 +18,9 @@
 			}
 		},
 		"ios": {
-			"barColor": "null"
+			"barImage": "/images/ui/Navigation.png",
+			"barColor": "#487272",
+			"selectedBackgroundColor": "#9FC5C5"
 		}
 	},
 	"localization": {
