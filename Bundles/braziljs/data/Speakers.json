@@ -5,97 +5,139 @@
 		"picture": "brendan.png",
 		"twitter_handle": "brendaneich",
 		"website": "brendaneich.com",
-		"description": "Brendan Eich é CTO da Mozilla e amplamente reconhecido por suas contribuições para a evolução da Internet. Em 1995, Eich inventou o JavaScript (ECMAScript), a linguagem de programação mais utilizada na internet. Ele também é um dos co-fundadores do projeto Mozilla.org em 1998, atuando como arquiteto chefe. Eich ajudou no lançamento do Firefox em novembro de 2004 e do ThunderBird em dezembro de 2004. Hoje, o foco central de Eich está em guiar o trabalho técnico futuro da Mozilla, para mante-la forte e competitiva. Na grande comunidade Web, Eich permanece dedicado em veicular a inovação nas tecnologias para internet e seu trabalho com JavaScript e com as plataformas Mozilla. Em agosto de 2005, Eich se tornou CTO da Mozilla. Ele também tem sido um membro do conselho da Mozilla Fundation desde sua criação, em 2003. Ele é Bacharel em Matemática e Ciências da Computação, graduado na Universidade de Santa Clara, e também é Md. em Ciências da Computação pela Universidade de Illinois."
+		"description": {
+			"pt": "Brendan Eich é CTO da Mozilla e amplamente reconhecido por suas contribuições para a evolução da Internet. Em 1995, Eich inventou o JavaScript (ECMAScript), a linguagem de programação mais utilizada na internet. Ele também é um dos co-fundadores do projeto Mozilla.org em 1998, atuando como arquiteto chefe. Eich ajudou no lançamento do Firefox em novembro de 2004 e do ThunderBird em dezembro de 2004. Hoje, o foco central de Eich está em guiar o trabalho técnico futuro da Mozilla, para mante-la forte e competitiva. Na grande comunidade Web, Eich permanece dedicado em veicular a inovação nas tecnologias para internet e seu trabalho com JavaScript e com as plataformas Mozilla. Em agosto de 2005, Eich se tornou CTO da Mozilla. Ele também tem sido um membro do conselho da Mozilla Fundation desde sua criação, em 2003. Ele é Bacharel em Matemática e Ciências da Computação, graduado na Universidade de Santa Clara, e também é Md. em Ciências da Computação pela Universidade de Illinois.",
+			"en": "Brendan Eich is CTO of Mozilla and widely recognized for his enduring contributions to the Internet revolution. In 1995, Eich invented JavaScript (ECMAScript), the Internet’s most widely used programming language. He also co-founded the mozilla.org project in 1998, serving as chief architect. Eich helped launch the award winning Firefox Web browser in November 2004 and Thunderbird e-mail client in December 2004. Today, Eich’s central focus is guiding the future technical work to keep Mozilla vital and competitive. In the greater Web community, Eich remains dedicated to driving innovation in Internet technology with his work in JavaScript and with the Mozilla platform. In August 2005, Eich became CTO of Mozilla. He has also been a board member of the Mozilla Foundation since its inception in 2003. He holds a bachelor of science in math and computer science from Santa Clara University and a master of science in computer science from the University of Illinois. Eich and his wife have four children."
+		}
 	},{
 		"name": "Richard D. Worth",
 		"company": "jQuery UI/Bocoup",
 		"picture": "richard.png",
 		"twitter_handle": "rworth",
 		"website": "rdworth.org",
-		"description": "Richard D. Worth é diretor executivo da jQuery Foundation e líder do projeto jQuery UI. Ele mora em Washington, D.C. e trabalha na Bocoup, treinando desenvolvedores em JavaScript, jQuery, and jQuery UI."
+		"description": {
+			"pt": "Richard D. Worth é diretor executivo da jQuery Foundation e líder do projeto jQuery UI. Ele mora em Washington, D.C. e trabalha na Bocoup, treinando desenvolvedores em JavaScript, jQuery, and jQuery UI.",
+			"en": "Executive director of jQuery Foundation and leader of the jQuery UI project. Lives in Washington, D.C. and works at Bocoup, training developers on JavaScript, jQuery, and jQuery UI."
+		}
 	},{
 		"name": "Fat",
 		"company": "Twitter",
 		"picture": "fat.png",
 		"twitter_handle": "fat",
 		"website": "byfat.xxx",
-		"description": "Fat é engenheiro no Twitter e co-author de vários projetos interessantes e conhecidos na comunidade JavaScript, entre eles: Bootstrap, Ender, Hogan.js."
+		"description": {
+			"pt": "Fat é engenheiro no Twitter e co-author de vários projetos interessantes e conhecidos na comunidade JavaScript, entre eles: Bootstrap, Ender, Hogan.js.",
+			"en": "Fat is an engineer at Twitter and co-author of various interesting projects famous in the Javascript community, like Bootstrap, Ender and Hogan.js."
+		}
 	},{
 		"name": "Michal Budzynski",
 		"company": "OnGameStart / AntarticJS",
 		"picture": "michal.png",
 		"twitter_handle": "michalbe",
 		"website": "michalbe.blogspot.com.br",
-		"description": "Michal é um alquimista da Open Web de Varsóvia, Polônia, responsável por muitos experimentos ridículos como o CSS Nyan Cat e All your gradient are belong to us. Recentemente organizou a onGameStart, a primeira conferência de jogos em HTML5 e quer trazer Javascript para o continente esquecido - a Antártica, com o AntarcticJS. Ele afirma com segurança que fazer da web um lugar melhor não é só seu trabalho - é seu estilo de vida. É por isso que criou a BLYSK, a primeira ferramenta séria de animação para a web (em breve)."
+		"description": {
+			"pt": "Michal é um alquimista da Open Web de Varsóvia, Polônia, responsável por muitos experimentos ridículos como o CSS Nyan Cat e All your gradient are belong to us. Recentemente organizou a onGameStart, a primeira conferência de jogos em HTML5 e quer trazer Javascript para o continente esquecido - a Antártica, com o AntarcticJS. Ele afirma com segurança que fazer da web um lugar melhor não é só seu trabalho - é seu estilo de vida. É por isso que criou a BLYSK, a primeira ferramenta séria de animação para a web (em breve).",
+			"en": "Michal is an Open Web Alchemist from Warsaw, Poland, responsible for many ridiculous experiments like CSS Nyan Cat or All your gradient are belong to us. Michal officiates as an HTML5 GameDev trainer in W3C and ran technical workshops and tech-talks in many countries on different continents. He recently organized onGameStart, the first HTML5 games conference and wants to bring JavaScript to the last and forgotten continent - Antarctica, with AntarcticJS. He safely says that making web a better place is not just his job - it's his lifestyle. That's why he founds BLYSK, soon-to-be-open-source first serious web animation tool."
+		}
 	},{
 		"name": "Mike Taylor",
 		"company": "Opera",
 		"picture": "mike.png",
 		"twitter_handle": "miketaylr",
 		"website": "miketaylr.com",
-		"description": "Mike Taylor trabalha para a Opera Software nos times de Developer Relations e Site Compatibility. Ele lê muitos e-mails e algumas vezes eles o deixam escrever JavaScript."
+		"description": {
+			"pt": "Mike Taylor trabalha para a Opera Software nos times de Developer Relations e Site Compatibility. Ele lê muitos e-mails e algumas vezes eles o deixam escrever JavaScript.",
+			"en": "Mike Taylor works for Opera Software on the Developer Relations and Site Compatibility team. He reads lots of email and sometimes they let him write JavaScript."
+		}
 	},{
 		"name": "Leonardo Balter",
 		"company": "Mozilla Rep / Estante Virtual",
 		"picture": "leonardo.png",
 		"twitter_handle": "leobalter",
 		"website": "leobalter.net",
-		"description": "Leo Balter é Representante Mozilla e desenvolvedor FrontEnd na Estante Virtual além de membro do RioJS. Apaixonado pela Web e tecnologias abertas que a integram, atualmente está engajado em alguns projetos open source como o B2G, MDN e outros relacionados a OpenData no Brasil."
+		"description": {
+			"pt": "Leo Balter é Representante Mozilla e desenvolvedor FrontEnd na Estante Virtual além de membro do RioJS. Apaixonado pela Web e tecnologias abertas que a integram, atualmente está engajado em alguns projetos open source como o B2G, MDN e outros relacionados a OpenData no Brasil.",
+			"en": "Mozilla Representative and front-end developer at Estante Virtual, and a member of RioJS. In love with the Web and open technologies that are part of it. Currently engaged in a few open-source projects like B2G, MDN and others related to OpenData in Brazil."
+		}
 	},{
 		"name": "Zeno Rocha",
 		"company": "Liferay",
 		"picture": "zeno.png",
 		"twitter_handle": "zenorocha",
 		"website": "zenorocha.com",
-		"description": "Zeno Rocha é Front-end Engineer na Liferay. Com apenas 21 anos, já foi desenvolvedor de software na Petrobras e desenvolvedor front-end no Globoesporte.com. É um dos criadores do projeto jQuery Boilerplate, do experimento Wormz que foi destaque no Chrome Experiments, lider da tradução para português do livro Dive into HTML5 e também é estudante de Sistemas de Informação na Universidade Federal do Estado do Rio de Janeiro - UNIRIO."
+		"description": {
+			"pt": "Zeno Rocha é Front-end Engineer na Liferay. Com apenas 21 anos, já foi desenvolvedor de software na Petrobras e desenvolvedor front-end no Globoesporte.com. É um dos criadores do projeto jQuery Boilerplate, do experimento Wormz que foi destaque no Chrome Experiments, lider da tradução para português do livro Dive into HTML5 e também é estudante de Sistemas de Informação na Universidade Federal do Estado do Rio de Janeiro - UNIRIO.",
+			"en": "Zeno Rocha, Front-end Engineer at Liferay. With only 21 years-old, he already worked as a software developer at Petrobras and front-end developer at Globoesporte.com. One of the creators of jQuery Boilerplate, Wormz a experiment that featured in Google Chrome Experiments, Dive into HTML5 translation project leader and studies Information Systems at UNIRIO."
+		}
 	},{
 		"name": "Eduardo Lundgren",
 		"company": "Liferay",
 		"picture": "eduardo.png",
 		"twitter_handle": "eduardolundgren",
 		"website": "eduardolundgren.com",
-		"description": "Um dos criadores do AlloyUI, sempre se envolve em projetos open source, ex-contribuidor do jQuery e jQuery UI. Graduado em Engenharia de Telecomunicações pela UPE e Mestrando em Ciência da Computação na UFPE. Atualmente é líder de desenvolvimento na Liferay."
+		"description": {
+			"pt": "Um dos criadores do AlloyUI, sempre se envolve em projetos open source, ex-contribuidor do jQuery e jQuery UI. Graduado em Engenharia de Telecomunicações pela UPE e Mestrando em Ciência da Computação na UFPE. Atualmente é líder de desenvolvimento na Liferay.",
+			"en": "One of the creators of AlloyUI, involved in many open-source projects, ex-contributor to jQuery and jQuery UI. Graduate in Telecommunications Engineering from UPE and taking a Masters in CS from UFPE. Currently development lead at LifeRay."
+		}
 	},{
 		"name": "Renato Mangini",
 		"company": "Google",
 		"picture": "renato.png",
 		"twitter_handle": "renatomangini",
 		"website": "renatomangini.com",
-		"description": "Renato Mangini trabalha na equipe Chrome do Google. Seu objetivo é ajudar a comunidade de desenvolvedores web a transformar tecnologia web em produtos mágicos e surpreendentes."
+		"description": {
+			"pt": "Renato Mangini trabalha na equipe Chrome do Google. Seu objetivo é ajudar a comunidade de desenvolvedores web a transformar tecnologia web em produtos mágicos e surpreendentes.",
+			"en": "Renato Mangini works in the Google Chrome team. His goal is helping the community of web developers to make magic, surprising products, out of web technologies."
+		}
 	},{
 		"name": "Davidson Fellipe",
 		"company": "Globo.com",
 		"picture": "davidson.png",
 		"twitter_handle": "davidsonfellipe",
 		"website": "fellipe.com",
-		"description": "Graduado em engenharia da computação pela UPE e técnico em eletrônica pelo IFPE. Fundador e moderador dos grupos riojs e pernambucojs. Atualmente é Desenvolvedor Frontend na Globo.com e Mestrando em Informática na PUC-Rio."
+		"description": {
+			"pt": "Graduado em engenharia da computação pela UPE e técnico em eletrônica pelo IFPE. Fundador e moderador dos grupos riojs e pernambucojs. Atualmente é Desenvolvedor Frontend na Globo.com e Mestrando em Informática na PUC-Rio.",
+			"en": "Graduated in Computer Engineering at UPE and electronic technician from IFPE. Is the founder and moderator of RioJS and PernambucoJS Discussion groups. Currently, is a FrontEnd Developer at Globo.com and studies for his Master degree at PUC-Rio."
+		}
 	},{
 		"name": "Daniel Filho",
 		"company": "IG",
 		"picture": "daniel.png",
 		"twitter_handle": "danielfilho",
 		"website": "dnl.bz",
-		"description": "Daniel Filho é programador front end, com grande foco no desenvolvimento de interfaces e interações. Com experiência em aplicações web móveis, sempre focando a performance do HTML, CSS e JavaScript."
+		"description": {
+			"pt": "Daniel Filho é programador front end, com grande foco no desenvolvimento de interfaces e interações. Com experiência em aplicações web móveis, sempre focando a performance do HTML, CSS e JavaScript.",
+			"en": "Daniel Filho is a front end developer, very focused in interface development and interactions. Experienced in mobile web applications, has always been focused in HTML, CSS and JavaScript performances."
+		}
 	},{
 		"name": "Benjamin E Alman",
 		"company": "Cowboy / Bocoup",
 		"picture": "benjamin.png",
 		"twitter_handle": "cowboy",
 		"website": "benalman.com",
-		"description": "Ben Alman trabalha atualmente na Bocoup, onde é responsável pelo currículo de treinamentos em desenvolvimento em JavaScript e jQuery intermediário e avançados, além da criação e manutenção de ferramentas baseadas em JavaScript. Em adição, Ben escreve artigos e palestra sobre boas práticas com JavaScript. Ben criou e mantém um número de vários projetos JavaScript open source populares, além de plugins jQuery, e é um contribuidor frequente do jQuery, jQuery mobile e Modernizr."
+		"description": {
+			"pt": "Ben Alman trabalha atualmente na Bocoup, onde é responsável pelo currículo de treinamentos em desenvolvimento em JavaScript e jQuery intermediário e avançados, além da criação e manutenção de ferramentas baseadas em JavaScript. Em adição, Ben escreve artigos e palestra sobre boas práticas com JavaScript. Ben criou e mantém um número de vários projetos JavaScript open source populares, além de plugins jQuery, e é um contribuidor frequente do jQuery, jQuery mobile e Modernizr.",
+			"en": "Ben Alman currently works at Bocoup, where he is responsible for the development of intermediate and advanced JavaScript and jQuery training curricula, as well as the creation and maintenance of JavaScript-based tools and utilities. In addition to his training and client work at Bocoup, Ben writes articles and gives presentations advocating JavaScript and jQuery best practices. Ben has created and maintains a number of very popular open source JavaScript projects and jQuery plugins and is a frequent contributor to the open source jQuery, jQuery Mobile and Modernizr projects. As an avid photographer and funk bass player, Ben loves spending time taking photos and jamming in the greater Boston area."
+		}
 	},{
 		"name": "Maximiliano Firtman",
 		"company": "Firt",
 		"picture": "maximiliano.png",
 		"twitter_handle": "firt",
 		"website": "firt.mobi",
-		"description": "Max Firtman é um desenvolvedor mobile+web, professor, palestrante e escritor. É um dos campeões Adobe Community e fundador do ITMaster Professional Training. Escreveu diversos livros, incluindo “Programming the Moblie Web” e “jQuery Mobile: Up and Running”, publicados pela O’Reilly. Ele tem um blog sobre desenvolvimento web mobile em www.mobilexweb.com e tambem mantém o website www.mobilehtml5.org. Frequentemente, palestra em conferências, incluindo a QCon, OSCON, Breaking Development, Velocity Conference, Fluent, Google Developer Day, Nokia Developers Day, Campus Party Europe e diversos outros ao redor do mundo. Recebeu também alguns reconhecimentos mais, como o reconhecimento Google para a pessoa mais inovativa entre desenvolvedores mobile e campeão do Nokia Developer desde 2006."
+		"description": {
+			"pt": "Max Firtman é um desenvolvedor mobile+web, professor, palestrante e escritor. É um dos campeões Adobe Community e fundador do ITMaster Professional Training. Escreveu diversos livros, incluindo “Programming the Moblie Web” e “jQuery Mobile: Up and Running”, publicados pela O’Reilly. Ele tem um blog sobre desenvolvimento web mobile em www.mobilexweb.com e tambem mantém o website www.mobilehtml5.org. Frequentemente, palestra em conferências, incluindo a QCon, OSCON, Breaking Development, Velocity Conference, Fluent, Google Developer Day, Nokia Developers Day, Campus Party Europe e diversos outros ao redor do mundo. Recebeu também alguns reconhecimentos mais, como o reconhecimento Google para a pessoa mais inovativa entre desenvolvedores mobile e campeão do Nokia Developer desde 2006.",
+			"en": "Max Firtman is a mobile+web developer, trainer, speaker and writer. He is Adobe Community Champion and founder of ITMaster Professional Training. He wrote many books, including “Programming the Mobile Web” and “jQuery Mobile: Up and Running” published by O'Reilly Media He has a blog about mobile web development at www.mobilexweb.com and he maintains the website www.mobilehtml5.org. He is a frequent speaker at conferences, including QCon, OSCON, Breaking Development, Velocity Conference, Fluent, Google Developer Day, Nokia Developer Days, Campus Party Europe and many other events around the world. He has received different recognitions, including Nokia Developer Champion yearly since 2006; Adobe Community Champion in 2011, and a Google recognition for being one of the most innovative mobile developers."
+		}
 	},{
 		"name": "Dave Herman",
 		"company": "Mozilla",
 		"picture": "david.png",
 		"twitter_handle": "littlecalculist",
 		"website": "calculist.org",
-		"description": "Dave Herman é um Pesquisador Sênior na Mozilla. Ele trabalha com diversas coisas, incluindo JavaScript e Rust."
+		"description": {
+			"pt": "Dave Herman é um Pesquisador Sênior na Mozilla. Ele trabalha com diversas coisas, incluindo JavaScript e Rust.",
+			"en": "Dave Herman is a Senior Researcher at Mozilla Research. Dave's teams at Mozilla are building the Rust programming language, the next-generation Servo browser engine, and new extensions to JavaScript. Dave serves on TC39 working on the future of JavaScript."
+		}
 	}
 ]
