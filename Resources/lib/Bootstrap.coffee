@@ -4,7 +4,6 @@ exports.setInitialConfigutarion = ->
 	files = [
 		{ type: "Object", name: "Config" }
 		{ type: "Array", name: "Speakers" }
-		{ type: "Array", name: "Talks"}
 	]
 
 	for file in files
