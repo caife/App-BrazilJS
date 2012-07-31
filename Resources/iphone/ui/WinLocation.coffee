@@ -2,32 +2,32 @@ Window = ->
 
 	# Requirements
 	Model = require "/lib/Model"
-	Localization = require "/lib/Localization"
+	Location = require "/lib/Location"
 	ui = require "/ui/components"
 
 	# Instance Model object and get config informations
 	model = new Model()
 	config = model.getConfig()
-	localization = config.localization
+	location = config.location
 
 	# Create the Window
 	self = new ui.createWindow
-		title: L("localization")
+		title: L("location")
 
 	# Create the Annotation
 	annotation = new ui.createMapAnnotation
-		latitude: localization.latitude
-		longitude: localization.longitude
-		title: localization.name
-		subtitle: localization.address
+		latitude: location.latitude
+		longitude: location.longitude
+		title: location.name
+		subtitle: location.address
 		rightButton: Ti.UI.iPhone.SystemButton.CONTACT_ADD
 
 	# Create the MapView
 	mapView = new ui.createMapView
 		annotations: [annotation]
 		region:
-			latitude: localization.latitude
-			longitude: localization.longitude
+			latitude: location.latitude
+			longitude: location.longitude
 			latitudeDelta: 0.005
 			longitudeDelta: 0.005
 
@@ -52,8 +52,8 @@ Window = ->
 			mapOptions.addEventListener "click", (e) ->
 
 				switch e.index
-					when 0 then Localization.contact config.mail_contact, config.theme.ios.barColor
-					when 1 then Localization.makeRoute localization.latitude, localization.longitude
+					when 0 then Location.contact config.mail_contact, config.theme.ios.barColor
+					when 1 then Location.makeRoute location.latitude, location.longitude
 
 	self
 

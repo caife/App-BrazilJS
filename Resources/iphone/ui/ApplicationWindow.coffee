@@ -2,7 +2,7 @@ TabGroup = ->
 
 	WinSpeakers = require "/ui/WinSpeakers"
 	WinTalks = require "/ui/WinTalks"
-	WinLocalization = require "/ui/WinLocalization"
+	WinLocation = require "/ui/WinLocation"
 
 	# Create TabGroup
 	self = Ti.UI.createTabGroup()
@@ -16,8 +16,8 @@ TabGroup = ->
 		title: L("speakers")
 		icon: "/images/icons/Users.png"
 
-	tabLocalization = Ti.UI.createTab
-		title: L("localization")
+	tabLocation = Ti.UI.createTab
+		title: L("location")
 		icon: "/images/icons/Navigation-Map.png"
 
 	# Talks
@@ -33,10 +33,10 @@ TabGroup = ->
 	self.addTab(tabSpeakers)
 
 	# Localization
-	winLocalization = new WinLocalization
-		currenTab: tabLocalization
-	tabLocalization.setWindow winLocalization
-	self.addTab(tabLocalization)
+	winLocation = new WinLocation
+		currenTab: tabLocation
+	tabLocation.setWindow winLocation
+	self.addTab(tabLocation)
 
 	self
 
