@@ -48,8 +48,16 @@ Window = (dict, talk) ->
 	rowDescription = Ti.UI.createTableViewRow
 		selectionStyle: Ti.UI.iPhone.TableViewCellSelectionStyle.NONE
 
+	# Select lang of text description
+	locale = Ti.Platform.getLocale()
+
+	if typeof talk.description[locale] != "undefined"
+		descriptionText = talk.description[locale]
+	else
+		descriptionText = talk.description.en
+
 	rowDescription.add Ti.UI.createLabel
-		text: talk.description
+		text: descriptionText
 		width: 280
 		height: Ti.UI.SIZE
 		top: 10
