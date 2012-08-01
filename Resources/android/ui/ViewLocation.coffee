@@ -6,7 +6,7 @@ View = ->
 
 	# Instance Model object and get config informations
 	model = new Model()
-	config = model.getConfig().localization
+	config = model.getConfig().location
 
 	# Create the View
 	self = new ui.createView
