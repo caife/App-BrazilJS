@@ -14,6 +14,7 @@ exports.createWindow = (dict) ->
 	defaults = 
 		backgroundColor: "#FFFFFF"
 		barColor: gradientColor
+		navBarHidden: if isAndroid then true else false
 
 	window = Ti.UI.createWindow applyConfig dict, defaults
 
