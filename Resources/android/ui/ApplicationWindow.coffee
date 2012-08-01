@@ -21,7 +21,8 @@ Window = ->
 		title: config.appname
 		titleColor: config.theme.android.actionBar.titleColor
 		backgroundColor: config.theme.android.actionBar.backgroundColor
-		selectedColor: config.theme.android.selectedColor
+		backgroundImage: config.theme.android.actionBar.backgroundImage
+		selectedColor: config.theme.android.selectedBackgroundColor
 		buttons:[{
 			icon: "/images/New-Email.png"
 			id: "share"
@@ -32,7 +33,7 @@ Window = ->
 
 	# Create TabStripView
 	tabStripView = new TabStripView
-		selectedColor: config.theme.android.selectedColor
+		selectedColor: config.theme.android.selectedBackgroundColor
 		titleColor: config.theme.android.tabStripView.titleColor
 		separatorColor: config.theme.android.tabStripView.separatorColor
 		borderColor: config.theme.android.tabStripView.borderColor
