@@ -81,7 +81,7 @@ class TabStripView
 		# Active View
 		activeView = Ti.UI.createView
 			width: @tabWidth
-			height: "4dp"
+			height: "6dp"
 			bottom: 0
 			backgroundColor: @dict.borderColor
 			visible: if @index == 0 then true else false
