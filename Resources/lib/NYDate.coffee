@@ -44,21 +44,23 @@ class NYDate
 
 	# 06
 	getFormatedHours: ->
-		hour = @getHours()
+		hour = @date.getHours()
 		hour = "0#{hour}" if hour < 10
+		hour
 
 	# 3
 	getMinutes: ->
 		@date.getMinutes()
 
 	# 03
-	getFormatedHour: ->
-		minutes = @getMinutes()
+	getFormatedMinutes: ->
+		minutes = @date.getMinutes()
 		minutes = "0#{minutes}" if minutes < 10
+		minutes
 
 	# 15:09
 	getFormatedTime: ->
-		return "#{@date.getHours()}:#{@date.getMinutes()}"
+		return "#{@getFormatedHours()}:#{@getFormatedMinutes()}"
 
 	# 27 of April
 	getDayAndStringMonth: ->
