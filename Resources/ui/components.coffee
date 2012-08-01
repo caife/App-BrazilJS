@@ -156,12 +156,16 @@ exports.createTalkRow = (dict) ->
 	# TableViewRow
 	self = Ti.UI.createTableViewRow
 		talk_obj: dict
-		hasChild: if isAndroid then false else true
-		height: "60dp"
+		hasChild: if isAndroid or dict.type != "talk" then false else true
+		height: Ti.UI.SIZE
+		layout: "vertical"
 		className: "talk"
 
 	if !isAndroid
 		self.selectedBackgroundColor = config.theme.ios.selectedBackgroundColor
+
+	if !isAndroid and dict.type != "talk"
+		self.selectionStyle = Ti.UI.iPhone.TableViewCellSelectionStyle.NONE
 
 	# Select lang of text name
 	if typeof dict.name[locale] != "undefined"
@@ -179,13 +183,37 @@ exports.createTalkRow = (dict) ->
 	self.add titleLabel
 
 	# Time and Speaker
+	if dict.talk == true
+		timeText = "#{talkDate.getFormatedTime()} - #{dict.speaker}"
+	else
+		timeText = talkDate.getFormatedTime()
+
 	timeAndSpeakerLabel = Ti.UI.createLabel
-		text: "#{talkDate.getFormatedTime()} - #{dict.speaker}"
+		text: timeText
 		left: leftSpaceOfLabels
-		top: "33dp"
+		bottom: "12dp"
+		top: "5dp"
+		height: "15dp"
 		color: "#666666"
 		font: { fontSize: "14dp" }
 	self.add timeAndSpeakerLabel
+
+	# Right image, if needed
+	if !isAndroid and dict.type != "talk"
+		
+		switch dict.type
+			when "coffee", "breakfast", "other"
+				rightImageOfRow = "Coffee.png"
+			when "lunch"
+				rightImageOfRow = "Food.png"
+			when "checkin/breakfast"
+				rightImageOfRow = "Tag.png"
+			when "break"
+				rightImageOfRow = "User.png"
+			else
+				rightImageOfRow = "Coffee.png"
+
+		self.setRightImage "/images/icons/#{rightImageOfRow}"
 
 	self
 
