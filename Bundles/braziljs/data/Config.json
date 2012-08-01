@@ -6,15 +6,16 @@
 	"push_notification": true,
 	"theme": {
 		"android": {
-			"selectedColor": "#4DA9CA",
+			"selectedBackgroundColor": "#4DA9CA",
 			"actionBar": {
 				"titleColor": "#FFFFFF",
-				"backgroundColor": "#222222"
+				"backgroundColor": "#222222",
+				"backgroundImage": "/images/ui/Navigation@2x.png"
 			},
 			"tabStripView": {
 				"titleColor": "#222222",
 				"separatorColor": "#222222",
-				"borderColor": "#222222",
+				"borderColor": "#487272",
 				"backgroundColor": "#DDDDDD"
 			}
 		},
