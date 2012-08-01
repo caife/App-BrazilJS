@@ -10,6 +10,7 @@ class ActionBarView
 			height: "44dp"
 			top: 0
 			backgroundColor: @dict.backgroundColor
+			backgroundImage: @dict.backgroundImage
 
 		# If have title, show a label. If have not, show an image.
 		if typeof @dict.title != "undefined"
