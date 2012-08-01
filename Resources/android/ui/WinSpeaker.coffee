@@ -36,6 +36,7 @@ Window = (speaker) ->
 		width: "65dp"
 		top: "10dp"
 		left: "10dp"
+		bottom: "10dp"
 		borderColor: "#444444"
 		borderWidth: 1
 		borderRadius: 4
@@ -86,6 +87,7 @@ Window = (speaker) ->
 		top: "10dp"
 		bottom: "10dp"
 		ellipsize: false
+		color: "#000000"
 		font: { fontSize: "16dp" }
 
 	contentView = Ti.UI.createView
@@ -95,12 +97,27 @@ Window = (speaker) ->
 	# Create TableView
 	tableView = new ui.createTableView
 		headerView: headerView
+		separatorColor: "#BEBEBE"
 		data: [rowWebsite, rowTwitter, rowDescription]
 	contentView.add tableView
 
 	# Events handler
 	actionBar.addEventListener "back", ->
 		self.close()
+
+	tableView.addEventListener "click", (e) ->
+		switch e.index
+			when 0 then openWebSite()
+			when 1 then openTwitter()
+
+	# Methods
+	openWebSite = ->
+		url = "http://www.#{speaker.website}"
+		Ti.Platform.openURL url
+
+	openTwitter = ->
+		url = "http://www.twitter.com/#{speaker.twitter_handle}"
+		Ti.Platform.openURL url
 
 	self
 
