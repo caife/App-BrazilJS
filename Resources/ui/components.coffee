@@ -102,16 +102,19 @@ exports.createTableView = (dict) ->
 # TableViewRows
 exports.createSpeakerRow = (dict) ->
 
-	spaceFromBorder = if isAndroid then 0 else "7dp"
-	imageSize = if isAndroid then "70dp" else "45dp"
-	leftSpaceOfLabels = if isAndroid then "85dp" else "70dp"
+	spaceFromBorder = "7dp"
+	imageSize = "45dp"
+	leftSpaceOfLabels = "70dp"
 
 	self = Ti.UI.createTableViewRow
 		speaker_obj: dict
 		hasChild: if isAndroid then false else true
 		height: Ti.UI.SIZE
-		selectedBackgroundColor: config.theme.ios.selectedBackgroundColor
+		focusable: true
 		className: "speaker"
+
+	if !isAndroid
+		self.selectedBackgroundColor = config.theme.ios.selectedBackgroundColor
 
 	image = Ti.UI.createImageView
 		image: "/images/speakers/list/#{dict.picture}"
@@ -151,9 +154,11 @@ exports.createTalkRow = (dict) ->
 	self = Ti.UI.createTableViewRow
 		talk_obj: dict
 		hasChild: if isAndroid then false else true
-		selectedBackgroundColor: config.theme.ios.selectedBackgroundColor
 		height: "60dp"
 		className: "talk"
+
+	if !isAndroid
+		self.selectedBackgroundColor = config.theme.ios.selectedBackgroundColor
 
 	# Title
 	titleLabel = Ti.UI.createLabel
@@ -180,8 +185,10 @@ exports.createRowWithTitleAndValue = (title, value, selectable = false, hasChild
 	row = Ti.UI.createTableViewRow
 		height: 44
 		hasChild: hasChild
-		selectedBackgroundColor: if selectable then config.theme.ios.selectedBackgroundColor
 		selectionStyle: if !selectable then Ti.UI.iPhone.TableViewCellSelectionStyle.NONE
+
+	if !isAndroid
+		self.selectedBackgroundColor = if selectable then config.theme.ios.selectedBackgroundColor
 	
 	row.add Ti.UI.createLabel
 		text: title
