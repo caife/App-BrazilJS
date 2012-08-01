@@ -12,16 +12,17 @@ gradientColor = config.theme.ios.barColor
 exports.createWindow = (dict) ->
 
 	defaults = 
+		backgroundColor: "#FFFFFF"
 		barColor: gradientColor
 
 	window = Ti.UI.createWindow applyConfig dict, defaults
 
 	# Set barImage if configured
-	if typeof config.theme.ios.barImage != "undefined"
+	if !isAndroid and typeof config.theme.ios.barImage != "undefined"
 		window.setBarImage "/images/ui/Navigation.png"
 
 	# Set shadow in the Window if configured
-	if typeof config.theme.ios.haveShadowInWindow != "undefined"
+	if !isAndroid and typeof config.theme.ios.haveShadowInWindow != "undefined"
 		
 		if config.theme.ios.haveShadowInWindow == true
 
