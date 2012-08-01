@@ -2,6 +2,7 @@ class ActionBarView
 
 	constructor: (dict) ->
 
+		self = @
 		@dict = dict
 		@buttonOffset = 0
 
@@ -12,22 +13,74 @@ class ActionBarView
 			backgroundColor: @dict.backgroundColor
 			backgroundImage: @dict.backgroundImage
 
+		# Application Icon
+		applicationIcon = Ti.UI.createImageView
+			image: "/images/ui/Icon.png"
+			left: "20dp"
+			top: "6dp"
+			bottom: "6dp"
+			width: "32dp"
+			borderRadius: 4
+		@actionBarView.add applicationIcon
+
+		# Create BackButton
+		if typeof @dict.backButton != "undefined"
+			if @dict.backButton == true
+
+				# Create BackImage
+				backImageView = Ti.UI.createImageView
+					backgroundImage: "/images/Navigation-Back.png"
+					left: "6dp"
+					width: "10dp"
+					height: "32dp"
+				@actionBarView.add backImageView
+
+				# Create BackButton
+				backgroundBackButton = Ti.UI.createButton
+					zIndex: -10
+					width: "56dp"
+					left: 0
+					top: 0
+					bottom: 0
+					opacity: 0.8
+					backgroundColor: "transparent"
+				@actionBarView.add backgroundBackButton
+
+				# Create BackButton
+				backButton = Ti.UI.createButton
+					width: "52dp"
+					left: 0
+					top: 0
+					bottom: 0
+					backgroundColor: "transparent"
+				@actionBarView.add backButton
+
+				# Event handler
+				backButton.addEventListener "click", ->
+					self.actionBarView.fireEvent "back"
+
+				backButton.addEventListener "touchstart", ->
+					backgroundBackButton.setBackgroundColor self.dict.selectedColor
+
+				backButton.addEventListener "touchend", ->
+					backgroundBackButton.setBackgroundColor "transparent"
+
+				backButton.addEventListener "touchcancel", ->
+					backgroundBackButton.setBackgroundColor "transparent"
+
 		# If have title, show a label. If have not, show an image.
 		if typeof @dict.title != "undefined"
 			@actionBarView.add Ti.UI.createLabel
 				text: @dict.title
-				left: "5dp"
+				left: "60dp"
 				color: @dict.titleColor
 				font:
 					fontSize: "18dp"
 					fontWeight: "bold"
-		else
-			@actionBarView.add Ti.UI.createImageView
-				image: @dict.icon
-				left: "5dp"
 
 		# Create buttons
-		@createActionBarButton button for button in @dict.buttons
+		if typeof @dict.buttons != "undefined"
+			@createActionBarButton button for button in @dict.buttons
 
 		return @actionBarView
 
@@ -67,13 +120,6 @@ class ActionBarView
 
 		# Add button to View
 		@actionBarView.add button
-
-		# A little hack to border left
-		@actionBarView.add Ti.UI.createView
-			backgroundColor: "#DEDEDE"
-			width: 1
-			height: Ti.UI.FILL
-			right: @buttonOffset + b.width + 1 + "dp"
 
 		# Event handler
 		button.addEventListener "click", ->
