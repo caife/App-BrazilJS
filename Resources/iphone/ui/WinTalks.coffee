@@ -136,17 +136,18 @@ Window = (dict) ->
 	# TableView Click
 	tableView.addEventListener "click", (e) ->
 
-		# Select row
-		rowSelectedIndex = e.index
-		rowSelected = e.row
-		tableView.selectRow(e.index, { animated : false })
-		
-		# Open Window
 		talk_obj = e.rowData.talk_obj
 
-		WinTalk = require "/ui/WinTalk"
-		winTalk = new WinTalk(dict, talk_obj)
-		dict.currenTab.open winTalk
+		if talk_obj.type == "talk"
+			# Select row
+			rowSelectedIndex = e.index
+			rowSelected = e.row
+			tableView.selectRow(e.index, { animated : false })
+			
+			# Open Window
+			WinTalk = require "/ui/WinTalk"
+			winTalk = new WinTalk(dict, talk_obj)
+			dict.currenTab.open winTalk
 
 
 	# Refresh Button click
