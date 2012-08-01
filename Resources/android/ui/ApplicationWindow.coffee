@@ -25,7 +25,7 @@ Window = ->
 		selectedColor: config.theme.android.selectedBackgroundColor
 		buttons:[{
 			icon: "/images/New-Email.png"
-			id: "share"
+			id: "contact"
 			width: 60
 		}]
 
@@ -68,6 +68,10 @@ Window = ->
 
 	tabStripView.addEventListener "selected", (e) ->
 		viewController.scrollToView e.index
+
+	actionBar.addEventListener "buttonPress", (e) ->
+		if e.id == "contact"
+			Ti.Platform.openURL "mailto:#{config.mail_contact}"
 
 	self
 
