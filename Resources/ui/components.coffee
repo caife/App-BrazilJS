@@ -1,3 +1,4 @@
+NYDate = require "/lib/NYDate"
 Model = require "/lib/Model"
 model = new Model()
 config = model.getConfig()
@@ -143,13 +144,8 @@ exports.createTalkRow = (dict) ->
 
 	leftSpaceOfLabels = "10dp"
 
-	# Separate data to get day
-	talkDate = new Date(dict.dateTime)
-	talkHour = talkDate.getHours()
-	talkMinute = talkDate.getMinutes()
-
-	talkHour = "0#{talkHour}" if talkHour < 10
-	talkMinute = "0#{talkMinute}" if talkMinute < 10
+	# Instance of NYDate
+	talkDate = new NYDate(dict.dateTime)
 
 	# TableViewRow
 	self = Ti.UI.createTableViewRow
@@ -170,7 +166,7 @@ exports.createTalkRow = (dict) ->
 
 	# Time and Speaker
 	timeAndSpeakerLabel = Ti.UI.createLabel
-		text: "#{talkHour}:#{talkMinute} - #{dict.speaker}"
+		text: "#{talkDate.getFormatedTime()} - #{dict.speaker}"
 		left: leftSpaceOfLabels
 		top: "33dp"
 		color: "#666666"

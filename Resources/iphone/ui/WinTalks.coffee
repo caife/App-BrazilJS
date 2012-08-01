@@ -4,6 +4,7 @@ Window = (dict) ->
 	ui = require "/ui/components"
 	ProgressView = require "/lib/ProgressView"
 	Model = require "/lib/Model"
+	NYDate = require "/lib/NYDate"
 
 	model = new Model()
 	config = model.getConfig()
@@ -12,20 +13,6 @@ Window = (dict) ->
 	rowSelected = null
 	progressView = undefined
 	rows = []
-	months = [
-		L("january")
-		L("february")
-		L("march")
-		L("april")
-		L("may")
-		L("june")
-		L("july")
-		L("august")
-		L("september")
-		L("october")
-		L("november")
-		L("december")
-	]
 
 	buttonRefresh = Ti.UI.createButton
 		systemButton: Ti.UI.iPhone.SystemButton.REFRESH
@@ -100,8 +87,8 @@ Window = (dict) ->
 			do (talk) ->
 
 				# Separate data to get day
-				talkDate = new Date(talk.dateTime)
-				talkDay = talkDate.getDate()
+				talkDate = new NYDate(talk.dateTime)
+				talkDay = talkDate.getDay()
 				talkMonth = talkDate.getMonth() + 1
 
 				# Create TableViewRow
@@ -114,7 +101,7 @@ Window = (dict) ->
 
 					if typeof sections[actualSection] == "undefined"
 						sections[actualSection] = Ti.UI.createTableViewSection
-							headerTitle: "#{talkDay} #{L('of')} #{months[talkMonth]}"
+							headerTitle: talkDate.getDayAndStringMonth()
 
 				sections[actualSection].add row
 
@@ -136,7 +123,7 @@ Window = (dict) ->
 
 
 	# Get data
-	if Ti.Network.getOnline() == false
+	if Ti.Network.getOnline() == true
 		# Get data from WS
 		getDataFromWS()
 	else

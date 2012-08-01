@@ -3,38 +3,15 @@ Window = (dict, talk) ->
 	# Requirements
 	ui = require "/ui/components"
 	Model = require "/lib/Model"
+	NYDate = require "/lib/NYDate"
 
 	# Just initialize some variables
 	model = new Model()
 	config = model.getConfig()
 	rowSelectedIndex = null
-	months = [
-		L("january")
-		L("february")
-		L("march")
-		L("april")
-		L("may")
-		L("june")
-		L("july")
-		L("august")
-		L("september")
-		L("october")
-		L("november")
-		L("december")
-	]
 
-	# Date format
-	talkDate = new Date(talk.dateTime)
-	talkHour = talkDate.getHours()
-	talkMinutes = talkDate.getMinutes()
-	talkDay = talkDate.getDate()
-	talkMonth = talkDate.getMonth() + 1
-	
-	talkHour = "0#{talkHour}" if talkHour < 10
-	talkMinutes = "0#{talkMinutes}" if talkMinutes < 10
-
-	timeLabelText = "#{talkHour}:#{talkMinutes}"
-	dateLabelText = "#{talkDay} #{L('of')} #{months[talkMonth]}"
+	# Instance of NYDate
+	talkDate = new NYDate(talk.dateTime)
 
 	# Create the Window
 	self = new ui.createWindow
@@ -62,10 +39,10 @@ Window = (dict, talk) ->
 	rowSpeaker = ui.createRowWithTitleAndValue L("speaker"), talk.speaker, true, true
 
 	# Date
-	rowDate = ui.createRowWithTitleAndValue L("date"), dateLabelText
+	rowDate = ui.createRowWithTitleAndValue L("date"), talkDate.getDayAndStringMonth()
 
 	# Time
-	rowTime = ui.createRowWithTitleAndValue L("time"), timeLabelText
+	rowTime = ui.createRowWithTitleAndValue L("time"), talkDate.getFormatedTime()
 
 	# Description
 	rowDescription = Ti.UI.createTableViewRow
