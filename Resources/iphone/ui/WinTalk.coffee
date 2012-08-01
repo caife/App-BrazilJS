@@ -9,6 +9,7 @@ Window = (dict, talk) ->
 	model = new Model()
 	config = model.getConfig()
 	rowSelectedIndex = null
+	locale = Ti.Platform.getLocale()
 
 	# Instance of NYDate
 	talkDate = new NYDate(talk.dateTime)
@@ -22,9 +23,15 @@ Window = (dict, talk) ->
 		height: Ti.UI.SIZE
 		backgroundColor: "transparent"
 
+	# Select lang of text name
+	if typeof talk.name[locale] != "undefined"
+		nameText = talk.name[locale]
+	else
+		nameText = talk.name.en
+
 	# Name
 	labelName = Ti.UI.createLabel
-		text: talk.name
+		text: nameText
 		left: 20
 		top: 20
 		color: "#000000"
@@ -49,8 +56,6 @@ Window = (dict, talk) ->
 		selectionStyle: Ti.UI.iPhone.TableViewCellSelectionStyle.NONE
 
 	# Select lang of text description
-	locale = Ti.Platform.getLocale()
-
 	if typeof talk.description[locale] != "undefined"
 		descriptionText = talk.description[locale]
 	else

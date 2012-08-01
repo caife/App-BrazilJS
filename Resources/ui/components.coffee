@@ -2,6 +2,7 @@ NYDate = require "/lib/NYDate"
 Model = require "/lib/Model"
 model = new Model()
 config = model.getConfig()
+locale = Ti.Platform.getLocale()
 
 # Defaults
 isAndroid = if (Ti.Platform.osname == "android") then true else false
@@ -162,9 +163,15 @@ exports.createTalkRow = (dict) ->
 	if !isAndroid
 		self.selectedBackgroundColor = config.theme.ios.selectedBackgroundColor
 
+	# Select lang of text name
+	if typeof dict.name[locale] != "undefined"
+		nameText = dict.name[locale]
+	else
+		nameText = dict.name.en
+
 	# Title
 	titleLabel = Ti.UI.createLabel
-		text: dict.name
+		text: nameText
 		left: leftSpaceOfLabels
 		top: "10dp"
 		color: "#000000"
@@ -185,22 +192,24 @@ exports.createTalkRow = (dict) ->
 exports.createRowWithTitleAndValue = (title, value, selectable = false, hasChild = false) ->
 	
 	row = Ti.UI.createTableViewRow
-		height: 44
+		height: if isAndroid then "50dp" else "44dp"
 		hasChild: hasChild
 		selectionStyle: if !selectable then Ti.UI.iPhone.TableViewCellSelectionStyle.NONE
 
 	if !isAndroid
-		self.selectedBackgroundColor = if selectable then config.theme.ios.selectedBackgroundColor
+		row.selectedBackgroundColor = if selectable then config.theme.ios.selectedBackgroundColor
 	
 	row.add Ti.UI.createLabel
 		text: title
-		left: 10
-		font: { fontSize: 16, fontWeight: "bold" }
+		left: "10dp"
+		font: { fontSize: "16dp", fontWeight: "bold" }
+		color: "#000000"
 
 	row.add Ti.UI.createLabel
 		text: value
-		right: 10
-		font: { fontSize: 16 }
+		right: "10dp"
+		font: { fontSize: "16dp" }
+		color: "#000000"
 
 	row
 
