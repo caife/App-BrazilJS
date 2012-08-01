@@ -10,7 +10,7 @@
 			"actionBar": {
 				"titleColor": "#FFFFFF",
 				"backgroundColor": "#222222",
-				"backgroundImage": "/images/ui/Navigation@2x.png"
+				"backgroundImage": "/images/ui/ActionBar.png"
 			},
 			"tabStripView": {
 				"titleColor": "#222222",
