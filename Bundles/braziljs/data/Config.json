@@ -3,7 +3,13 @@
 	"website": "http://www.braziljs.com.br",
 	"twitter_handle": "braziljs",
 	"mail_contact": "contato@braziljs.com.br",
-	"push_notification": true,
+	"push_notification": {
+		"enabled": true,
+		"android": {
+			"id": "623330903139",
+			"register_url": "http://braziljs-ws.herokuapp.com/device/android"
+		}
+	},
 	"theme": {
 		"android": {
 			"selectedBackgroundColor": "#4DA9CA",
