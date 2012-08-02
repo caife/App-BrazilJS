@@ -32,6 +32,7 @@ Window = (dict, talk) ->
 	# Name
 	labelName = Ti.UI.createLabel
 		text: nameText
+		right: 20
 		left: 20
 		top: 20
 		color: "#000000"
