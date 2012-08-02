@@ -49,16 +49,19 @@ class Notification
 
 				intent = Ti.Android.createIntent
 					action: Ti.Android.ACTION_MAIN
-					flags: Ti.Android.FLAG_ACTIVITY_NEW_TASK | Ti.Android.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED
+					flags: Ti.Android.FLAG_ACTIVITY_SINGLE_TOP
 					packageName: "com.rafaelks.braziljs"
-					className: "com.rafaelks.braziljs.BraziljsActivity"
+					className: "org.appcelerator.titanium.TiActivity"
+				intent.addCategory Ti.Android.CATEGORY_LAUNCHER
 
 				pending = Ti.Android.createPendingIntent
 					activity: Ti.Android.currentActivity
 					intent: intent
 					type: Ti.Android.PENDING_INTENT_FOR_ACTIVITY
+					flags: Ti.Android.FLAG_UPDATE_CURRENT | Ti.Android.FLAG_NO_CLEAR
 
 				notification = Ti.Android.createNotification
+					icon: Ti.App.Android.R.drawable.ic_stat
 					contentIntent: pending
 					contentTitle: e.data.title
 					contentText: e.data.message
