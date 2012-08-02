@@ -2,7 +2,7 @@ Window = (speaker) ->
 
 	# Requirements
 	ui = require "/ui/components"
-	ActionBarView = require "/ui/ActionBarView"
+	ActionBarView = require "/lib/ActionBarView"
 	Model = require "/lib/Model"
 
 	# Just initialize some variables

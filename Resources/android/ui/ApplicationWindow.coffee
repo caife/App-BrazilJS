@@ -1,8 +1,8 @@
 Window = ->
 
 	Model = require "/lib/Model"
-	ActionBarView = require "/ui/ActionBarView"
-	TabStripView = require "/ui/TabStripView"
+	ActionBarView = require "/lib/ActionBarView"
+	TabStripView = require "/lib/TabStripView"
 	ViewSpeakers = require "/ui/ViewSpeakers"
 	ViewTalks = require "/ui/ViewTalks"
 	ViewLocation = require "/ui/ViewLocation"
