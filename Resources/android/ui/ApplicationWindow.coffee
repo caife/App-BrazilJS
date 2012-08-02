@@ -10,6 +10,16 @@ Window = ->
 	model = new Model()
 	config = model.getConfig()
 
+	# Register for Push Notification, if needed
+	if config.push_notification.enabled == true
+
+		Notification = require "/lib/Notification"
+		notification = new Notification
+			id: config.push_notification.android.id
+			register_url: config.push_notification.android.register_url
+
+		notification.registerForPushNotification()
+
 	self = Ti.UI.createWindow
 		exitOnClose: true
 		backgroundColor: "#FFF"
