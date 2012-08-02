@@ -5,13 +5,28 @@ The application supports Portuguese and English.
 
 All the code is open sourced. So, you can use this code to learn and create your tests.
 
+## Requirements
+### Modules
+* [Google Cloud Messaging](https://github.com/liccowee/Google-Cloud-Messaging--Titanium-) - Liccowee
+* [TiViewShadow](https://github.com/omorandi/TiViewShadow) - Olivier Morandi
+* [MakeTi](https://github.com/mattapperson/MakeTi) - Matt Apperson
+
+### Softwares
+* [CoffeeScript](http://www.coffeescript.org)
+
 ## Running
 To run this application, you will need Titanium Appcelerator SDK installed in *~/Library/Application Support/Titanium/*, the Xcode to run in iOS and the Android SDK to run in Android.
 
 So, go to the root project folder and execute this command in Terminal:
 
+### iOS Simulator
 ```
 $ sh run.sh bundle=braziljs
+```
+
+### Android Device
+```
+$ sh run.sh bundle=braziljs platform=android
 ```
 
 ## Screen-Shots
