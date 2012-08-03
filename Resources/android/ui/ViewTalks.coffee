@@ -126,6 +126,18 @@ View = ->
 		# Get data from Model
 		getDataFromLocal()
 
+	# Events handler
+
+	# TableView Click
+	tableView.addEventListener "click", (e) ->
+
+		talk_obj = e.row.talk_obj
+
+		if talk_obj.type == "talk"
+			# Open Window
+			WinTalk = require "/ui/WinTalk"
+			new WinTalk(talk_obj).open()
+
 	self
 
 module.exports = View
