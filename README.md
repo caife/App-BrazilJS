@@ -12,6 +12,7 @@ All the code is open sourced. So, you can use this code to learn and create your
 * [MakeTi](https://github.com/mattapperson/MakeTi) - Matt Apperson
 
 ### Softwares
+* [Titanium SDK 2.1.1.GA](http://www.appcelerator.com)
 * [CoffeeScript](http://www.coffeescript.org)
 
 ## Running
