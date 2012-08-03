@@ -69,7 +69,8 @@ Window = (speaker) ->
 	rowTwitter = ui.createRowWithTitleAndValue L("twitter"), "@#{speaker.twitter_handle}", true
 
 	# Description
-	rowDescription = Ti.UI.createTableViewRow()
+	rowDescription = Ti.UI.createTableViewRow
+		selectedBackgroundColor: "#FFFFFF"
 
 	# Select lang of text description
 	locale = Ti.Platform.getLocale()
