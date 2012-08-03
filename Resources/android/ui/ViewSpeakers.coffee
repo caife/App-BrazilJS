@@ -26,7 +26,7 @@ View = ->
 	# Events handle
 	tableView.addEventListener "click", (e) ->
 
-		speaker_obj = e.rowData.speaker_obj
+		speaker_obj = e.row.speaker_obj
 
 		WinSpeaker = require "/ui/WinSpeaker"
 		new WinSpeaker(speaker_obj).open({ modal: true })
