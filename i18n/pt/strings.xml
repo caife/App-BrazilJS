@@ -37,4 +37,6 @@
 	<string name="of">de</string>
 	<string name="date">Data</string>
 	<string name="time">Horário</string>
+	<string name="description">Descrição</string>
+	<string name="sharing_message">no @braziljs, com</string>
 </resources>
