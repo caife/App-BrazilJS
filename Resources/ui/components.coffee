@@ -229,17 +229,43 @@ exports.createRowWithTitleAndValue = (title, value, selectable = false, hasChild
 	
 	row.add Ti.UI.createLabel
 		text: title
-		left: "10dp"
+		left: if isAndroid then 0 else "10dp"
 		font: { fontSize: "16dp", fontWeight: "bold" }
 		color: "#000000"
 
 	row.add Ti.UI.createLabel
 		text: value
-		right: "10dp"
+		right: if isAndroid then 0 else "10dp"
 		font: { fontSize: "16dp" }
 		color: "#000000"
 
 	row
+
+exports.createSectionHeaderView = (title) ->
+
+	self = Ti.UI.createView
+		width: Ti.UI.SIZE
+		height: "40dp"
+		backgroundColor: "transparent"
+
+	self.add Ti.UI.createView
+		left: "13dp"
+		right: "13dp"
+		bottom: 0
+		height: "1dp"
+		backgroundColor: "#000000"
+
+	self.add Ti.UI.createLabel
+		text: title
+		left: "13dp"
+		right: "13dp"
+		bottom: "3dp"
+		color: "#000000"
+		height: "17dp"
+		font: { fontSize: "14dp", fontWeight: "bold" }
+
+	self
+
 
 # CoffeeScript extends
 applyConfig = (object, config) ->
