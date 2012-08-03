@@ -64,6 +64,12 @@ class TabStripView
 			index: @index
 			selected: if @index == 0 then true else false
 
+		backgroundSelected = Ti.UI.createView
+			width: Ti.UI.FILL
+			height: Ti.UI.FILL
+			backgroundColor: "transparent"
+		tab.add backgroundSelected
+
 		# Title Label
 		tab.add Ti.UI.createLabel
 			text: d.title
@@ -89,13 +95,14 @@ class TabStripView
 
 		# Events handler
 		tab.addEventListener "touchstart", ->
-			@setBackgroundColor self.dict.selectedColor
+			backgroundSelected.setOpacity 0.9
+			backgroundSelected.setBackgroundColor self.dict.selectedColor
 
 		tab.addEventListener "touchend", ->
-			@setBackgroundColor "transparent"
+			backgroundSelected.setBackgroundColor "transparent"
 
 		tab.addEventListener "touchcancel", ->
-			@setBackgroundColor "transparent"
+			backgroundSelected.setBackgroundColor "transparent"
 
 		# Toggle tab
 		tab.toggle = (active) ->
