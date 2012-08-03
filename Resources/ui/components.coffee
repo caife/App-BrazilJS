@@ -164,6 +164,9 @@ exports.createTalkRow = (dict) ->
 	if !isAndroid
 		self.selectedBackgroundColor = config.theme.ios.selectedBackgroundColor
 
+	if isAndroid and dict.type != "talk"
+		self.backgroundSelectedColor = "transparent"
+
 	if !isAndroid and dict.type != "talk"
 		self.selectionStyle = Ti.UI.iPhone.TableViewCellSelectionStyle.NONE
 
@@ -199,7 +202,7 @@ exports.createTalkRow = (dict) ->
 	self.add timeAndSpeakerLabel
 
 	# Right image, if needed
-	if !isAndroid and dict.type != "talk"
+	if dict.type != "talk"
 		
 		switch dict.type
 			when "coffee", "breakfast", "other"
