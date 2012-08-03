@@ -85,6 +85,7 @@ Window = (talk) ->
 		headerView: ui.createSectionHeaderView L("speaker")
 	
 	rowSpeaker = Ti.UI.createTableViewRow
+		selectedBackgroundColor: "transparent"
 		height: "44dp"
 
 	rowSpeaker.add Ti.UI.createImageView
@@ -107,7 +108,7 @@ Window = (talk) ->
 		headerView: ui.createSectionHeaderView L("description")
 	
 	rowDescription = Ti.UI.createTableViewRow
-		selectedBackgroundColor: "#FFFFFF"
+		selectedBackgroundColor: "transparent"
 
 	# Select lang of text description
 	if typeof talk.description[locale] != "undefined"
@@ -154,6 +155,11 @@ Window = (talk) ->
 			intent.putExtra Ti.Android.EXTRA_TEXT, share_message
 			intent.addCategory Ti.Android.CATEGORY_DEFAULT
 			Ti.Android.currentActivity.startActivity intent
+
+	# Open Speaker Window
+	rowSpeaker.addEventListener "click", ->
+		WinSpeaker = require "/ui/WinSpeaker"
+		new WinSpeaker(speaker_obj).open()
 
 	self
 
