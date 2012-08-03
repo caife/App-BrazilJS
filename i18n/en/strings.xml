@@ -39,4 +39,10 @@
 	<string name="time">Time</string>
 	<string name="description">Description</string>
 	<string name="sharing_message">in @braziljs, with</string>
+	<string name="in_female">in</string>
+	<string name="in_male">in</string>
+	<string name="with">with</string>
+	<string name="address">Address</string>
+	<string name="city">City</string>
+	<string name="view_map">Open the map</string>
 </resources>

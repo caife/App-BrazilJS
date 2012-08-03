@@ -38,5 +38,10 @@
 	<string name="date">Data</string>
 	<string name="time">Horário</string>
 	<string name="description">Descrição</string>
-	<string name="sharing_message">no @braziljs, com</string>
+	<string name="in_female">na</string>
+	<string name="in_male">no</string>
+	<string name="with">com</string>
+	<string name="address">Endereço</string>
+	<string name="city">Cidade</string>
+	<string name="view_map">Abrir o mapa</string>
 </resources>
