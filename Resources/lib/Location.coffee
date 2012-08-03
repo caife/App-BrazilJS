@@ -1,3 +1,5 @@
+isAndroid = if (Ti.Platform.osname == "android") then true else false
+
 exports.contact = (email, barColor) ->
 	
 	emailDialog = Ti.UI.createEmailDialog
@@ -21,5 +23,5 @@ exports.makeRoute = (latitude, longitude) ->
 
 			routeSchema = "http://maps.google.com/maps?z=0.005&saddr=#{latitude},#{longitude}&daddr=#{e.coords.latitude},#{e.coords.longitude}"
 
-			if Ti.Platform.canOpenURL routeSchema
+			if isAndroid or Ti.Platform.canOpenURL routeSchema
 				Ti.Platform.openURL routeSchema
