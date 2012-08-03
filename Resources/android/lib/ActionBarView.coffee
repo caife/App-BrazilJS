@@ -42,7 +42,6 @@ class ActionBarView
 					left: 0
 					top: 0
 					bottom: 0
-					opacity: 0.8
 					backgroundColor: "transparent"
 				@actionBarView.add backgroundBackButton
 
@@ -60,6 +59,7 @@ class ActionBarView
 					self.actionBarView.fireEvent "back"
 
 				backButton.addEventListener "touchstart", ->
+					backgroundBackButton.setOpacity 0.5
 					backgroundBackButton.setBackgroundColor self.dict.selectedColor
 
 				backButton.addEventListener "touchend", ->
@@ -73,6 +73,9 @@ class ActionBarView
 			@actionBarView.add Ti.UI.createLabel
 				text: @dict.title
 				left: "60dp"
+				right: "5dp"
+				height: "24dp"
+				ellipsize: false
 				color: @dict.titleColor
 				font:
 					fontSize: "18dp"
@@ -93,6 +96,12 @@ class ActionBarView
 		button = Ti.UI.createView
 			width: "#{b.width}dp"
 			right: "#{@buttonOffset}dp"
+
+		backgroundButton = Ti.UI.createView
+			width: Ti.UI.FILL
+			height: Ti.UI.FILL
+			backgroundColor: "transparent"
+		button.add backgroundButton
 
 		# Label or Icon
 		if b.title
@@ -127,13 +136,14 @@ class ActionBarView
 				id: b.id
 
 		button.addEventListener "touchstart", ->
-			this.setBackgroundColor self.dict.selectedColor
+			backgroundButton.setOpacity 0.8
+			backgroundButton.setBackgroundColor self.dict.selectedColor
 
 		button.addEventListener "touchend", ->
-			this.setBackgroundColor "transparent"
+			backgroundButton.setBackgroundColor "transparent"
 
 		button.addEventListener "touchcancel", ->
-			this.setBackgroundColor "transparent"
+			backgroundButton.setBackgroundColor "transparent"
 
 		@buttonOffset += (b.width + 7)
 
