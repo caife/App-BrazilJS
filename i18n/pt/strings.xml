@@ -44,4 +44,6 @@
 	<string name="address">Endereço</string>
 	<string name="city">Cidade</string>
 	<string name="view_map">Abrir o mapa</string>
+	<string name="refresh">Recarregar</string>
+	<string name="loading">Carregando</string>
 </resources>
