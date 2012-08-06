@@ -126,6 +126,7 @@ exports.createSpeakerRow = (dict) ->
 		bottom: spaceFromBorder
 		height: imageSize
 		width: imageSize
+		touchEnabled: false
 	self.add image
 
 	name = Ti.UI.createLabel
@@ -134,6 +135,7 @@ exports.createSpeakerRow = (dict) ->
 		top: "11dp"
 		color: "#000000"
 		font: { fontWeight: "bold", fontSize: "18dp" }
+		touchEnabled: false
 	self.add name
 
 	company = Ti.UI.createLabel
@@ -142,6 +144,7 @@ exports.createSpeakerRow = (dict) ->
 		top: "31dp"
 		color: "#666666"
 		font: { fontSize: "14dp" }
+		touchEnabled: false
 	self.add company
 
 	self
@@ -183,6 +186,7 @@ exports.createTalkRow = (dict) ->
 		top: "10dp"
 		color: "#000000"
 		font: { fontSize: "18dp", fontWeight: "bold" }
+		touchEnabled: false
 	self.add titleLabel
 
 	# Time and Speaker
@@ -199,6 +203,7 @@ exports.createTalkRow = (dict) ->
 		height: "15dp"
 		color: "#666666"
 		font: { fontSize: "14dp" }
+		touchEnabled: false
 	self.add timeAndSpeakerLabel
 
 	# Right image, if needed
