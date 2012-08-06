@@ -26,13 +26,6 @@ View = ->
 		# Disable Refresh Button
 		#buttonRefresh.setEnabled false
 
-		# Show ProgressView
-		progressView = Ti.UI.createActivityIndicator
-			message: L("loading")
-		self.add progressView
-		
-		progressView.show()
-
 		# Start to get values from WS
 		xhr = Ti.Network.createHTTPClient
 			oncancel: ->
@@ -40,9 +33,6 @@ View = ->
 				#buttonRefresh.setEnabled true
 				
 			onerror: ->
-				# Hide ProgressView
-				progressView.hide()
-
 				# Get local data
 				getDataFromLocal()
 
@@ -109,10 +99,6 @@ View = ->
 
 		# Set data in TableView
 		tableView.setData sectionsList
-
-		# Hide ProgressView
-		if typeof progressView != "undefined"
-			progressView.hide()
 
 		# Enable Refresh Button
 		#buttonRefresh.setEnabled true
