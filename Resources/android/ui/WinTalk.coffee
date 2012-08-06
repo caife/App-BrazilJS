@@ -150,10 +150,7 @@ Window = (talk) ->
 				action: Ti.Android.ACTION_SEND
 				type: "text/plain"
 
-			share_message = "
-					\"#{nameText}\" #{L('in_male')} @#{config.twitter_handle},
-					#{L('with')} #{speaker_obj.name} - @#{speaker_obj.twitter_handle}
-				"
+			share_message = "\"#{nameText}\" #{L('in_male')} @#{config.twitter_handle}, #{L('with')} #{speaker_obj.name} - @#{speaker_obj.twitter_handle}"
 
 			intent.putExtra Ti.Android.EXTRA_TEXT, share_message
 			intent.addCategory Ti.Android.CATEGORY_DEFAULT
