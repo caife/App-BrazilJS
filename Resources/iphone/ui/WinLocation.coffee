@@ -24,6 +24,7 @@ Window = ->
 
 	# Create the MapView
 	mapView = new ui.createMapView
+		userLocation: false
 		annotations: [annotation]
 		region:
 			latitude: location.latitude
