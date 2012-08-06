@@ -1,4 +1,4 @@
-View = ->
+View = (App) ->
 
 	# Requirements
 	Model = require "/lib/Model"
@@ -13,9 +13,6 @@ View = ->
 	self = ui.createView
 		backgroundColor: "#FFFFFF"
 
-	# ActivityIndicator
-	progressView = undefined
-
 	# Create TableView
 	tableView = new ui.createTableView
 		separatorColor: "#BEBEBE"
@@ -23,15 +20,12 @@ View = ->
 
 	# Get Talks from WS (online)
 	getDataFromWS = ->
-		# Disable Refresh Button
-		#buttonRefresh.setEnabled false
 
 		# Start to get values from WS
 		xhr = Ti.Network.createHTTPClient
 			oncancel: ->
-				# Enable Refresh Button
-				#buttonRefresh.setEnabled true
-				
+				return
+
 			onerror: ->
 				# Get local data
 				getDataFromLocal()
@@ -53,9 +47,6 @@ View = ->
 
 	# Get Talks from Properties (offline)
 	getDataFromLocal = ->
-		# Disable Refresh Button
-		#buttonRefresh.setEnabled false
-
 		# Get Properties
 		talks = model.getTalks()
 
@@ -100,17 +91,18 @@ View = ->
 		# Set data in TableView
 		tableView.setData sectionsList
 
-		# Enable Refresh Button
-		#buttonRefresh.setEnabled true
+		App.fireEvent("hideProgressView")
 
+	# LoadData
+	loadData = ->
 
-	# Get data
-	if Ti.Network.networkType != 0
-		# Get data from WS
-		getDataFromWS()
-	else
-		# Get data from Model
-		getDataFromLocal()
+		App.fireEvent("showProgressView")
+
+		if Ti.Network.networkType != 0
+			getDataFromWS()
+		else
+			getDataFromLocal()
+	
 
 	# Events handler
 
@@ -123,6 +115,12 @@ View = ->
 			# Open Window
 			WinTalk = require "/ui/WinTalk"
 			new WinTalk(talk_obj).open()
+
+	# Refresh List
+	self.addEventListener "refreshList", ->
+		loadData()
+
+	loadData()
 
 	self
 
