@@ -50,15 +50,15 @@ Window = ->
 		backgroundColor: config.theme.android.tabStripView.backgroundColor
 		tabs: [
 			{ title: L("talks") }
-			{ title: L("speakers") }
 			{ title: L("location") }
+			{ title: L("speakers") }
 		]
 
 	self.add tabStripView
 
 	# View Controller
 	speakers = new ViewSpeakers()
-	talks = new ViewTalks()
+	talks = new ViewTalks(self)
 	location = new ViewLocation()
 
 	viewController = Ti.UI.createScrollableView
@@ -66,11 +66,20 @@ Window = ->
 		left: 0
 		right: 0
 		bottom: 0
-		views: [talks, speakers, location]
+		views: [talks, location, speakers]
 		showPagingControl: false
 		backgroundColor: "#000"
 
 	self.add viewController
+
+	# ProgressView
+	progressView = Ti.UI.createActivityIndicator
+		messageid: "loading"
+	self.add progressView
+
+	setTimeout ->
+		progressView.show()
+	, 100
 
 	# Events handler
 	viewController.addEventListener "scroll", (e) ->
@@ -82,6 +91,34 @@ Window = ->
 	actionBar.addEventListener "buttonPress", (e) ->
 		if e.id == "contact"
 			Ti.Platform.openURL "mailto:#{config.mail_contact}"
+
+	self.addEventListener "showProgressView", ->
+		progressView.show()
+
+	self.addEventListener "hideProgressView", ->
+		progressView.hide()
+
+	# Android Fisical Menu
+	activity = self.activity
+
+	activity.onCreateOptionsMenu = (e) ->
+		menu = e.menu;
+
+		refreshTitle = L("refresh")
+		refresh = menu.add
+			title: refreshTitle
+			itemId: 0
+
+		refresh.addEventListener "click", (e) ->
+			talks.fireEvent("refreshList")
+
+	activity.onPrepareOptionsMenu = (e) ->
+		menu = e.menu
+
+		if viewController.currentPage == 0
+			menu.findItem(0).setVisible true
+		else
+			menu.findItem(0).setVisible false
 
 	self
 
