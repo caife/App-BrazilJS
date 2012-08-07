@@ -37,12 +37,13 @@
         </orientations>
     </iphone>
     <android xmlns:android="http://schemas.android.com/apk/res/android">
-        <manifest android:versionCode="3" android:versionName="1.0">
+        <manifest android:versionCode="4" android:versionName="1.0">
             <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="16" />
             <permission
-                android:name="com.rafaelks.braziljs.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+                android:name="com.rafaelks.braziljs.permission.C2D_MESSAGE" 
+                android:protectionLevel="signature"
+                />
             <uses-permission android:name="com.rafaelks.braziljs.permission.C2D_MESSAGE"/>
-            <!-- This app has permission to register and receive message -->
             <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
             <uses-permission android:name="android.permission.WAKE_LOCK"/>
             <uses-permission android:name="android.permission.VIBRATE"/>
@@ -53,7 +54,8 @@
             <application>
                 <service android:name="com.activate.gcm.GCMIntentService"/>
                 <receiver
-                    android:name="com.google.android.gcm.GCMBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+                    android:name="com.google.android.gcm.GCMBroadcastReceiver" 
+                    android:permission="com.google.android.c2dm.permission.SEND">
                     <!-- Start receiver on boot -->
                     <intent-filter>
                         <action android:name="android.intent.action.BOOT_COMPLETED"/>
@@ -74,13 +76,13 @@
                         <category android:name="com.rafaelks.braziljs"/>
                     </intent-filter>
                 </receiver>
-                <activity android:name="com.rafaelks.braziljs" android:screenOrientation="portrait"
+                <activity 
+                    android:name="com.rafaelks.braziljs" 
+                    android:screenOrientation="portrait"
                     android:configChanges="keyboardHidden|orientation"
                     >
                 </activity>
             </application>
-            <uses-feature android:name="android.permission.VIBRATE" android:required="false"/>
-            <uses-feature android:name="android.permission.ACCESS_FINE_LOCATION" android:required="false"/>
         </manifest>
     </android>
     <mobileweb>
