@@ -24,7 +24,8 @@ View = (App) ->
 		# Start to get values from WS
 		xhr = Ti.Network.createHTTPClient
 			oncancel: ->
-				return
+				# Get local data
+				getDataFromLocal()
 
 			onerror: ->
 				# Get local data
@@ -95,7 +96,7 @@ View = (App) ->
 
 	# LoadData
 	loadData = ->
-
+	
 		App.fireEvent("showProgressView")
 
 		if Ti.Network.networkType != 0
