@@ -151,6 +151,7 @@ Window = (speaker) ->
 
 	# ActionBar
 	actionBar.addEventListener "back", ->
+		self.setBackgroundColor "#FFFFFF"
 		self.close()
 
 	# WebSite

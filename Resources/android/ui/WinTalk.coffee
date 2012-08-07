@@ -140,6 +140,7 @@ Window = (talk) ->
 
 	# Events handler
 	actionBar.addEventListener "back", ->
+		self.setBackgroundColor "#FFFFFF"
 		self.close()
 
 	actionBar.addEventListener "buttonPress", (e) ->
