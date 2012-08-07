@@ -12,7 +12,7 @@ Window = (speaker) ->
 	# Create the Window
 	self = new ui.createWindow
 		title: L("speaker")
-		modal: true
+		modal: false
 
 	# Create ActionBar
 	actionBar = new ActionBarView

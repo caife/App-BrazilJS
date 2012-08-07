@@ -18,7 +18,7 @@ Window = (talk) ->
 	# Create the Window
 	self = new ui.createWindow
 		title: L("talk")
-		modal: true
+		modal: false
 
 	# Create ActionBar
 	actionBar = new ActionBarView
