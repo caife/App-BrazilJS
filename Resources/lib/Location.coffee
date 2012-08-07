@@ -21,7 +21,7 @@ exports.makeRoute = (latitude, longitude) ->
 
 		if !e.error
 
-			routeSchema = "http://maps.google.com/maps?z=0.005&saddr=#{latitude},#{longitude}&daddr=#{e.coords.latitude},#{e.coords.longitude}"
+			routeSchema = "http://maps.google.com/maps?z=0.005&daddr=#{latitude},#{longitude}&saddr=#{e.coords.latitude},#{e.coords.longitude}"
 
 			if isAndroid or Ti.Platform.canOpenURL routeSchema
 				Ti.Platform.openURL routeSchema
