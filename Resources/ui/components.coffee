@@ -218,6 +218,8 @@ exports.createTalkRow = (dict) ->
 				rightImageOfRow = "Tag.png"
 			when "break"
 				rightImageOfRow = "User.png"
+			when "end"
+				rightImageOfRow = "Beer.png"
 			else
 				rightImageOfRow = "Coffee.png"
 
