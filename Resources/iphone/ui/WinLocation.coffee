@@ -29,8 +29,8 @@ Window = ->
 		region:
 			latitude: location.latitude
 			longitude: location.longitude
-			latitudeDelta: 0.005
-			longitudeDelta: 0.005
+			latitudeDelta: 0.009
+			longitudeDelta: 0.009
 
 	self.add mapView
 
