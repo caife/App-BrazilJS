@@ -8,6 +8,7 @@ Window = (speaker) ->
 	# Just initialize some variables
 	model = new Model()
 	config = model.getConfig()
+	locale = Ti.Platform.getLocale().substr(0, 2)
 
 	# Create the Window
 	self = new ui.createWindow
@@ -109,8 +110,6 @@ Window = (speaker) ->
 		selectedBackgroundColor: "transparent"
 
 	# Select lang of text description
-	locale = Ti.Platform.getLocale()
-
 	if typeof speaker.description[locale] != "undefined"
 		descriptionText = speaker.description[locale]
 	else

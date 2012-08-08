@@ -9,7 +9,7 @@ Window = (talk) ->
 	# Just initialize some variables
 	model = new Model()
 	config = model.getConfig()
-	locale = Ti.Platform.getLocale()
+	locale = Ti.Platform.getLocale().substr(0, 2)
 	speaker_obj = model.getSpeakerWithName talk.speaker
 
 	# Instance of NYDate

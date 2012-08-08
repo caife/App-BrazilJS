@@ -2,7 +2,7 @@ NYDate = require "/lib/NYDate"
 Model = require "/lib/Model"
 model = new Model()
 config = model.getConfig()
-locale = Ti.Platform.getLocale()
+locale = Ti.Platform.getLocale().substr(0, 2)
 
 # Defaults
 isAndroid = if (Ti.Platform.osname == "android") then true else false
@@ -183,6 +183,7 @@ exports.createTalkRow = (dict) ->
 	titleLabel = Ti.UI.createLabel
 		text: nameText
 		left: leftSpaceOfLabels
+		right: leftSpaceOfLabels
 		top: "10dp"
 		color: "#000000"
 		font: { fontSize: "18dp", fontWeight: "bold" }
