@@ -185,8 +185,8 @@ exports.createTalkRow = (dict) ->
 		left: leftSpaceOfLabels
 		right: leftSpaceOfLabels
 		top: "10dp"
-		color: "#000000"
-		font: { fontSize: "18dp", fontWeight: "bold" }
+		color: (if dict.type == "talk" then "#000000" else "#666666")
+		font: { fontSize: "18dp", fontWeight: (if dict.type == "talk" then "bold" else "normal"), fontStyle: (if dict.type == "talk" then "normal" else "italic") }
 		touchEnabled: false
 	self.add titleLabel
 
