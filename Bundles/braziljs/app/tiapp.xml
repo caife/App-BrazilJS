@@ -64,13 +64,6 @@
                     android:name="com.google.android.gcm.GCMBroadcastReceiver" 
                     android:permission="com.google.android.c2dm.permission.SEND">
                     
-                    <!-- Notification Required -->
-                    <intent-filter>
-                        <action android:name="android.intent.action.VIEW"/>
-                        <category android:name="android.intent.category.DEFAULT"/>
-                        <category android:name="android.intent.category.LAUNCHER"/>
-                    </intent-filter>
-                    
                     <!-- Start receiver on boot -->
                     <intent-filter>
                         <action android:name="android.intent.action.BOOT_COMPLETED"/>
@@ -80,11 +73,13 @@
                         <action android:name="android.intent.action.BOOT_COMPLETED" />
                         <category android:name="android.intent.category.LAUNCHER" />
                     </intent-filter>
+
                     <!-- Receive the actual message -->
                     <intent-filter>
                         <action android:name="com.google.android.c2dm.intent.RECEIVE" />
                         <category android:name="com.rafaelks.braziljs" />
                     </intent-filter>
+
                     <!-- Receive the registration id -->
                     <intent-filter>
                         <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
