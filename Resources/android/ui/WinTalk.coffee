@@ -88,18 +88,26 @@ Window = (talk) ->
 		selectedBackgroundColor: "transparent"
 		height: "44dp"
 
-	rowSpeaker.add Ti.UI.createImageView
+	viewSpeaker = Ti.UI.createView
+		width: Ti.UI.FILL
+		height: Ti.UI.FILL
+
+	viewSpeaker.add Ti.UI.createImageView
 		left: "13dp"
 		width: "30dp"
 		height: "30dp"
 		image: "/images/speakers/detail/#{speaker_obj.picture}"
+		touchEnabled: false
 
-	rowSpeaker.add Ti.UI.createLabel
-		left: "48dp"
+	viewSpeaker.add Ti.UI.createLabel
+		left: "46dp"
 		right: "13dp"
 		text: talk.speaker
 		font: { fontSize: "16dp" }
 		color: "#000000"
+		touchEnabled: false
+
+	rowSpeaker.add viewSpeaker
 	
 	sectionSpeaker.add rowSpeaker
 
@@ -126,6 +134,7 @@ Window = (talk) ->
 		ellipsize: false
 		color: "#000000"
 		font: { fontSize: "16dp" }
+		touchEnabled: false
 	sectionDescription.add rowDescription
 
 	contentTableView = Ti.UI.createView
