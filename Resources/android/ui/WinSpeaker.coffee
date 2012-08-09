@@ -73,7 +73,7 @@ Window = (speaker) ->
 		headerView: ui.createSectionHeaderView L("website")
 	
 	rowWebsite = Ti.UI.createTableViewRow
-		selectedBackgroundColor: "transparent"
+		backgroundSelectedColor: config.theme.android.selectedBackgroundColor
 		height: "44dp"
 
 	rowWebsite.add Ti.UI.createLabel
@@ -90,7 +90,7 @@ Window = (speaker) ->
 		headerView: ui.createSectionHeaderView L("twitter")
 
 	rowTwitter = Ti.UI.createTableViewRow
-		selectedBackgroundColor: "transparent"
+		backgroundSelectedColor: config.theme.android.selectedBackgroundColor
 		height: "44dp"
 
 	rowTwitter.add Ti.UI.createLabel

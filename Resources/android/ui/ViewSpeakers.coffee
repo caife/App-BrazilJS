@@ -14,12 +14,14 @@ View = ->
 
 	# Get data and set to rows Array
 	speakers = model.getSpeakers()
-	rows = (ui.createSpeakerRow speaker for speaker in speakers)
+	sectionSpeakers = Ti.UI.createTableViewSection()
+
+	sectionSpeakers.add ui.createSpeakerRow speaker for speaker in speakers
 
 	# Create TableView
 	tableView = new ui.createTableView
 		separatorColor: "#BEBEBE"
-		data: rows
+		data: [sectionSpeakers]
 
 	self.add tableView
 

@@ -85,12 +85,13 @@ Window = (talk) ->
 		headerView: ui.createSectionHeaderView L("speaker")
 	
 	rowSpeaker = Ti.UI.createTableViewRow
-		selectedBackgroundColor: "transparent"
+		backgroundSelectedColor: config.theme.android.selectedBackgroundColor
 		height: "44dp"
 
 	viewSpeaker = Ti.UI.createView
 		width: Ti.UI.FILL
 		height: Ti.UI.FILL
+		touchEnabled: false
 
 	viewSpeaker.add Ti.UI.createImageView
 		left: "13dp"

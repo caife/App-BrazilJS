@@ -113,10 +113,12 @@ exports.createSpeakerRow = (dict) ->
 		speaker_obj: dict
 		hasChild: if isAndroid then false else true
 		height: Ti.UI.SIZE
-		focusable: true
+		backgroundColor: "#FFFFFF"
 		className: "speaker"
 
-	if !isAndroid
+	if isAndroid
+		self.backgroundSelectedColor = config.theme.android.selectedBackgroundColor
+	else
 		self.selectedBackgroundColor = config.theme.ios.selectedBackgroundColor
 
 	image = Ti.UI.createImageView
@@ -152,6 +154,8 @@ exports.createSpeakerRow = (dict) ->
 exports.createTalkRow = (dict) ->
 
 	leftSpaceOfLabels = "10dp"
+	disabledRow = if dict.type != "talk" then true else false
+	theme = config.theme
 
 	# Instance of NYDate
 	talkDate = new NYDate(dict.dateTime)
@@ -159,19 +163,19 @@ exports.createTalkRow = (dict) ->
 	# TableViewRow
 	self = Ti.UI.createTableViewRow
 		talk_obj: dict
-		hasChild: if isAndroid or dict.type != "talk" then false else true
+		hasChild: if isAndroid or disabledRow then false else true
 		height: Ti.UI.SIZE
 		layout: "vertical"
 		className: "talk"
-		backgroundColor: (if dict.type == "talk" then "#FFFFFF" else "#F1F1F1")
+		backgroundColor: if disabledRow then "#F1F1F1" else "#FFFFFF"
 
 	if !isAndroid
-		self.selectedBackgroundColor = config.theme.ios.selectedBackgroundColor
+		self.selectedBackgroundColor = theme.ios.selectedBackgroundColor
 
-	if isAndroid and dict.type != "talk"
-		self.backgroundSelectedColor = "transparent"
+	if isAndroid
+		self.backgroundSelectedColor = if disabledRow then "#F1F1F1" else theme.android.selectedBackgroundColor
 
-	if !isAndroid and dict.type != "talk"
+	if !isAndroid and disabledRow
 		self.selectionStyle = Ti.UI.iPhone.TableViewCellSelectionStyle.NONE
 
 	# Select lang of text name
@@ -186,16 +190,17 @@ exports.createTalkRow = (dict) ->
 		left: leftSpaceOfLabels
 		right: leftSpaceOfLabels
 		top: "10dp"
-		color: (if dict.type == "talk" then "#000000" else "#666666")
-		font: { fontSize: "18dp", fontWeight: (if dict.type == "talk" then "bold" else "normal")}
+		color: if disabledRow then "#666666" else "#000000"
+		font: { fontSize: "18dp", fontWeight: if disabledRow then "normal" else "bold"}
 		touchEnabled: false
 	self.add titleLabel
 
 	# Time and Speaker
-	if dict.talk == true
-		timeText = "#{talkDate.getFormatedTime()} - #{dict.speaker}"
-	else
+	if disabledRow
 		timeText = talkDate.getFormatedTime()
+	else
+		timeText = "#{talkDate.getFormatedTime()} - #{dict.speaker}"
+		
 
 	timeAndSpeakerLabel = Ti.UI.createLabel
 		text: timeText
@@ -209,7 +214,7 @@ exports.createTalkRow = (dict) ->
 	self.add timeAndSpeakerLabel
 
 	# Right image, if needed
-	if dict.type != "talk"
+	if disabledRow
 		
 		switch dict.type
 			when "coffee", "breakfast", "other"
