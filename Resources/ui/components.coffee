@@ -36,9 +36,9 @@ exports.createWindow = (dict) ->
 				backgroundColor: "#FF0000"
 				top: -100
 				shadow:
-					shadowRadius: 7
-					shadowOpacity: 0.5
-					shadowOffset: { x: 0, y: 5 }
+					shadowRadius: 8
+					shadowOpacity: 0.4
+					shadowOffset: { x: 0, y: 3 }
 			window.add shadowTopView
 
 			# Create Shadow
@@ -49,9 +49,9 @@ exports.createWindow = (dict) ->
 				backgroundColor: "#FF0000"
 				top: 370
 				shadow:
-					shadowRadius: 7
+					shadowRadius: 8
 					shadowOpacity: 0.7
-					shadowOffset: { x: 0, y: -5 }
+					shadowOffset: { x: 0, y: -3 }
 			window.add shadowBottomView
 
 	window
