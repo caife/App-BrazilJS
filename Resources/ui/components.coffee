@@ -163,6 +163,7 @@ exports.createTalkRow = (dict) ->
 		height: Ti.UI.SIZE
 		layout: "vertical"
 		className: "talk"
+		backgroundColor: (if dict.type == "talk" then "#FFFFFF" else "#F1F1F1")
 
 	if !isAndroid
 		self.selectedBackgroundColor = config.theme.ios.selectedBackgroundColor
@@ -185,8 +186,8 @@ exports.createTalkRow = (dict) ->
 		left: leftSpaceOfLabels
 		right: leftSpaceOfLabels
 		top: "10dp"
-		color: "#000000"
-		font: { fontSize: "18dp", fontWeight: "bold" }
+		color: (if dict.type == "talk" then "#000000" else "#666666")
+		font: { fontSize: "18dp", fontWeight: (if dict.type == "talk" then "bold" else "normal")}
 		touchEnabled: false
 	self.add titleLabel
 
