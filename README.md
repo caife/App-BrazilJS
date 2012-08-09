@@ -16,7 +16,7 @@ All the code is open sourced. So, you can use this code to learn and create your
 * [CoffeeScript](http://www.coffeescript.org)
 
 ## Stable Versions
-* [1.0](https://github.com/Nyvra/App-BrazilJS/commit/ac427d28380d5d57eff4c560213f05a1cadceef9)
+* [1.0](https://github.com/Nyvra/App-BrazilJS/tree/v1.0)
 
 ## Contributors
 * [Lúcio Fernando Maciel](http://www.twitter.com/luciofm)
