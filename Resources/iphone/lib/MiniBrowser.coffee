@@ -116,8 +116,8 @@ class MiniBrowser
 
 		buttonStop.addEventListener "click", ->
 
-			# Stop ActivityIndicator
-			self.activityIndicator.hide()
+			# Remove ActivityIndicator
+			self.windowBrowser.setRightNavButton null
 
 			# Stop WebView
 			self.webViewBrowser.stopLoading()
